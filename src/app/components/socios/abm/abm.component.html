@@ -1,0 +1,70 @@
+<div class="col">
+
+    <div class="row mt-4 ml-2">
+        <div class="col-7">
+            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input type="text" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="form-group">
+                    <label>Dni</label>
+                    <input type="text" class="form-control" placeholder="Dni">
+                </div>
+                <div class="form-group">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" class="form-control" placeholder="Fecha de nacimiento">
+                </div>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <input type="email" class="form-control" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="tel" class="form-control" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                    <label>Actividad</label>
+                    <!--
+                    <input type="text" class="form-control" placeholder="Actividad">
+                    -->
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija una activiad</option>
+                        <option value="1">Musculación</option>
+                        <option value="2">Boxeo</option>
+                        <option value="3">Funcional</option>
+                        <option value="1">Crossfit</option>
+                        <option value="2">Pilates</option>
+                        <option value="3">Pase Libre</option>
+                        <option value="3">Pase Libre + Crossfit</option>
+                    </select>
+                </div>
+
+                <hr>
+                <div class="form-group text-center ">
+                    <button type="submit " class="btn btn-info w-100 ">
+                        <i class="fa fa-save "></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-5 mt-4">
+            <div class="card text-white bg-info ml-5" style="max-width:90%;">
+                <div class="card-header">Recordatorio</div>
+                <div class="card-body text-white">
+                    <h5 class="card-title">Foto y Ficha médica</h5>
+                    <p class="card-text">Recuerde usar la app para sacar la foto al cliente y para escanear la ficha médica!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

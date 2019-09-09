@@ -1,3 +1,10 @@
-<p>
-  administracion works!
-</p>
+<div class=" row justify-content-center mt-3">
+    <div class="btn-group mt-2" role="group" aria-label="Basic example">
+        <button type="button" [routerLinkActive]="['active']" [routerLink]="['altaprov']" class="btn btn-outline-info">Alta proveedor</button>
+        <button type="button" [routerLinkActive]="['active']" [routerLink]="['modificarprov']" class="btn btn-outline-info">Modificar proveedor</button>
+        <button type="button" [routerLinkActive]="['active']" [routerLink]="['pagoprov']" class="btn btn-outline-info">Pagar proveedor</button>
+        <button type="button" [routerLinkActive]="['active']" [routerLink]="['abminsumos']" class="btn btn-outline-info">ABM insumos</button>
+    </div>
+</div>
+<hr>
+<router-outlet></router-outlet>

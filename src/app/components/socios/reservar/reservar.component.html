@@ -1,0 +1,102 @@
+<div class="col">
+    <div class="row mt-2 ml-2">
+        <h4>Grilla de Horarios</h4>
+    </div>
+
+    <div class="table-responsive-md mt-2 ml-2 mr-2">
+        <table class="table  table-hover table-borderless ">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Lunes</th>
+                    <th scope="col">Martes</th>
+                    <th scope="col">Miercoles</th>
+                    <th scope="col">Jueves</th>
+                    <th scope="col">Viernes</th>
+                    <th scope="col">Sabado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">CrossFit</th>
+                    <td>8:00 - 9:00 <span class="badge badge-info">10/20</span><br> 12:00 - 13:00 <span class="badge badge-info">6/20</span></td>
+                    <td>16:00 - 17:00 <span class="badge badge-danger">20/20</span> <br> 19:00 - 20:00 <span class="badge badge-info">5/20</span></td>
+                    <td>8:00 - 9:00 <span class="badge badge-info">11/20</span> <br> 12:00 - 13:00 <span class="badge badge-warning">16/20</span></td>
+                    <td>16:00 - 17:00 <span class="badge badge-danger">20/20</span> <br> 19:00 - 20:00 <span class="badge badge-info">6/20</span></td>
+                    <td>8:00 - 9:00 <span class="badge badge-danger">20/20</span><br> 12:00 - 13:00 <span class="badge badge-danger">20/20</span></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-5 ml-2">
+        <div class="col-12">
+            <h5>Datos reserva</h5>
+            <hr>
+            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Dni</label>
+                        <input type="text" class="form-control" placeholder="Dni">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" disabled>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Actividad</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Elija una activiad</option>
+                          <option value="1">Crossfit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Día</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija un día</option>
+                        <option value="1">Lunes</option>
+                        <option value="2">Martes</option>
+                        <option value="3">Miercoles</option>
+                        <option value="1">Jueves</option>
+                        <option value="2">Viernes</option>
+                    </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Horario</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Elija un horario</option>
+                      <option value="1">8:00 - 9:00</option>
+                      <option value="2">16:00 - 17:00</option>
+                    </select>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-row">
+                    <div class="form-group text-center col-md-6 ">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          <i class="far fa-calendar-check"></i>
+                          Reservar
+                      </button>
+                    </div>
+
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          <i class="far fa-window-close"></i>
+                          Cancelar
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

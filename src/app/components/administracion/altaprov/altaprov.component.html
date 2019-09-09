@@ -1,0 +1,69 @@
+<div class="col">
+
+    <div class="row mt-4 ml-2">
+        <div class="col-12">
+            <div>
+                <h5>Datos Empresa</h5>
+                <hr>
+            </div>
+            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>CUIT</label>
+                        <input type="text" class="form-control" placeholder="Cuit">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Correo</label>
+                        <input type="email" class="form-control" placeholder="Correo">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Teléfono</label>
+                        <input type="tel" class="form-control" placeholder="Teléfono">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Rubro</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Elija un rubro</option>
+                          <option value="1">Musculación</option>
+                          <option value="2">Boxeo</option>
+                          <option value="3">Funcional</option>
+                          <option value="1">Crossfit</option>
+                          <option value="2">Pilates</option>
+                          <option value="3">General</option>
+                          <option value="3">Limpieza</option>
+                      </select>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-row">
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          <i class="fa fa-save "></i>
+                          Guardar
+                      </button>
+                    </div>
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          <i class="fas fa-trash-alt"></i>
+                          Cancelar
+                      </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
