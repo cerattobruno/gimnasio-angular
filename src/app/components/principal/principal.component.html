@@ -17,43 +17,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Funcional</th>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">Boxeo</th>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">CrossFit</th>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>16:00 - 17:00 <br> 19:00 - 20:00</td>
-                    <td>8:00 - 9:00 <br> 12:00 - 13:00</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">Musculacion</th>
-                    <td>07:00 - 23:00</td>
-                    <td>07:00 - 23:00</td>
-                    <td>07:00 - 23:00</td>
-                    <td>07:00 - 23:00</td>
-                    <td>07:00 - 23:00</td>
-                    <td>09:00 - 14:00</td>
-                </tr>
+                <tr *ngFor="let act of actividades; let i=index">
+                    <th scope="row">{{act.nombre}}</th>
+                    <td *ngFor="let hora of dias">{{ act.horario[i] }} - {{ act.horario[i+1] }}</td>
 
+                </tr>
             </tbody>
         </table>
     </div>

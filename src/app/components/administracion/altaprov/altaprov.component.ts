@@ -12,4 +12,6 @@ export class AltaprovComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {}
+
 }

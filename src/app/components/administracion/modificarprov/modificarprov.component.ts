@@ -12,4 +12,5 @@ export class ModificarprovComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {}
 }
