@@ -19,6 +19,22 @@ import { AltaprovComponent } from './components/administracion/altaprov/altaprov
 import { ModificarprovComponent } from './components/administracion/modificarprov/modificarprov.component';
 import { PagoprovComponent } from './components/administracion/pagoprov/pagoprov.component';
 import { AbminsumosComponent } from './components/administracion/abminsumos/abminsumos.component';
+import { RutinasComponent } from './components/socios/rutinas/rutinas.component';
+import { SucursalComponent } from './components/administracion/sucursal/sucursal.component';
+import { AuditoriaComponent } from './components/administracion/auditoria/auditoria.component';
+import { EmpleadosComponent } from './components/empleados/empleados.component';
+import { AbmempleadosComponent } from './components/empleados/abmempleados/abmempleados.component';
+import { HorastrabajadasComponent } from './components/empleados/horastrabajadas/horastrabajadas.component';
+import { ActividadesComponent } from './components/actividades/actividades.component';
+import { AbmactividadesComponent } from './components/actividades/abmactividades/abmactividades.component';
+import { GestionmarketingComponent } from './components/gestionmarketing/gestionmarketing.component';
+import { PotencialesclientesComponent } from './components/gestionmarketing/potencialesclientes/potencialesclientes.component';
+import { SeguimientosociosComponent } from './components/gestionmarketing/seguimientosocios/seguimientosocios.component';
+import { CentromedicoComponent } from './components/centromedico/centromedico.component';
+import { AbmconsultoriosComponent } from './components/centromedico/abmconsultorios/abmconsultorios.component';
+import { AbmprofesionalesComponent } from './components/centromedico/abmprofesionales/abmprofesionales.component';
+import { BusquedapacienteComponent } from './components/centromedico/busquedapaciente/busquedapaciente.component';
+import { GestionestadisticasComponent } from './components/gestionestadisticas/gestionestadisticas.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +52,23 @@ import { AbminsumosComponent } from './components/administracion/abminsumos/abmi
     AltaprovComponent,
     ModificarprovComponent,
     PagoprovComponent,
-    AbminsumosComponent
+    AbminsumosComponent,
+    RutinasComponent,
+    SucursalComponent,
+    AuditoriaComponent,
+    EmpleadosComponent,
+    AbmempleadosComponent,
+    HorastrabajadasComponent,
+    ActividadesComponent,
+    AbmactividadesComponent,
+    GestionmarketingComponent,
+    PotencialesclientesComponent,
+    SeguimientosociosComponent,
+    CentromedicoComponent,
+    AbmconsultoriosComponent,
+    AbmprofesionalesComponent,
+    BusquedapacienteComponent,
+    GestionestadisticasComponent
   ],
   imports: [
     BrowserModule,

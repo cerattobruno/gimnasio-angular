@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar nav-pills  navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
         <!-- <i class="fas fa-dumbbell"></i> -->
         <img src="../../../../assets/logo1.png" width="30" height="30" class="d-inline-block align-top" alt=""> SmartGYM
@@ -8,7 +8,7 @@
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav  mr-auto top-menu">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['principal']" [routerLinkActive]="['active']">Principal <span class="sr-only">(current)</span></a>
             </li>
@@ -17,6 +17,21 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['administracion']" [routerLinkActive]="['active']">Gestión Administrativa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['empleados']" [routerLinkActive]="['active']">Gestión Empleados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['actividades']" [routerLinkActive]="['active']">Gestión Actividades</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['gestionmarketing']" [routerLinkActive]="['active']">Gestión Marketing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['centromedico']" [routerLinkActive]="['active']">Gestión Consultorios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['gestionestadisticas']" [routerLinkActive]="['active']">Gestión Estadísticas</a>
             </li>
         </ul>
     </div>

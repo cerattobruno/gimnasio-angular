@@ -1,3 +1,119 @@
-<p>
-  pagoprov works!
-</p>
+<div class="col">
+    <div class="row justify-content-center ">
+        <form class=" form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Ingrese CUIT/Nombre" aria-label="Buscar">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div class="row mt-4 ml-2">
+        <div class="col-12">
+            <div>
+                <h5>Datos Empresa</h5>
+                <hr>
+            </div>
+            <div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>CUIT</label>
+                        <input type="text" class="form-control" placeholder="Cuit" disabled>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                    <h5>Datos de la compra</h5>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <button type="button" class="btn btn-danger btn-sm">
+                        Agregar insumo
+                      <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <hr>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Nombre Insumo</label>
+                        <input type="text" class="form-control" placeholder="Nombre insumo">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Precio</label>
+                        <input type="number" class="form-control" placeholder="Precio">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Cantidad</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Cantidad...</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="1">4</option>
+                      <option value="2">5</option>
+                      <option value="3">6</option>
+                      <option value="3">7</option>
+                      <option value="2">8</option>
+                      <option value="3">9</option>
+                      <option value="3">10</option>
+                    </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-sm btn-block btn-outline-success ">
+                          <input type="checkbox" checked autocomplete="off">
+                          Efectivo
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-sm btn-block btn-outline-success ">
+                          <input type="checkbox" checked autocomplete="off">
+                          Débito
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-sm btn-block btn-outline-success ">
+                          <input type="checkbox" checked autocomplete="off">
+                          Crédito
+                        </label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-row">
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                              <i class="fa fa-save "></i>
+                              Guardar
+                            </button>
+                    </div>
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          <i class="fa fa-trash-alt"></i>
+                          Cancelar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
