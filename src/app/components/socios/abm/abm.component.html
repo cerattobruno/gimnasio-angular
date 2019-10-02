@@ -2,30 +2,30 @@
 
     <div class="row mt-4 ml-2">
         <div class="col-7">
-            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre">
+                    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevo_socio.nombre">
                 </div>
                 <div class="form-group">
                     <label>Apellido</label>
-                    <input type="text" class="form-control" placeholder="Apellido">
+                    <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="nuevo_socio.apellido">
                 </div>
                 <div class="form-group">
                     <label>Dni</label>
-                    <input type="text" class="form-control" placeholder="Dni">
+                    <input type="text" class="form-control" placeholder="Dni" [(ngModel)]="nuevo_socio.dni">
                 </div>
                 <div class="form-group">
                     <label>Fecha de nacimiento</label>
-                    <input type="date" class="form-control" placeholder="Fecha de nacimiento">
+                    <input type="date" class="form-control" placeholder="Fecha de nacimiento" [(ngModel)]="nuevo_socio.fecha_nacimiento">
                 </div>
                 <div class="form-group">
                     <label>Correo</label>
-                    <input type="email" class="form-control" placeholder="Correo">
+                    <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_socio.email">
                 </div>
                 <div class="form-group">
                     <label>Telefono</label>
-                    <input type="tel" class="form-control" placeholder="Telefono">
+                    <input type="tel" class="form-control" placeholder="Telefono" [(ngModel)]="nuevo_socio.tel_fijo">
                 </div>
                 <div class="form-group">
                     <label>Actividad</label>
@@ -46,7 +46,7 @@
 
                 <hr>
                 <div class="form-group text-center ">
-                    <button type="submit " class="btn btn-info w-100 ">
+                    <button (click)="NuevoSocio()" type="submit " class="btn btn-info w-100 ">
                         <i class="fa fa-save "></i>
                         Guardar
                     </button>
@@ -64,7 +64,10 @@
             </div>
 
             <div *ngFor="let empleado of empleados">
-                Nombre: {{ empleado.nombre }} <br> Apellido: {{ empleado.apellido }} <br> Correo: {{ empleado.email }} <br> Dni: {{ empleado.dni }} <br>
+                Titulo <input type="text" [(ngModel)]="empleado.nombre"/><br>
+                Descripcion <input type="text" [(ngModel)]="empleado.apellido"/><br>
+                Año <input type="text" [(ngModel)]="empleado.email"/><br>
+                Año <input type="text" [(ngModel)]="empleado.dni"/><br>
             </div>
         </div>
 
