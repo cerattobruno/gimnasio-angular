@@ -26,6 +26,8 @@ import { AbmconsultoriosComponent } from './components/centromedico/abmconsultor
 import { AbmprofesionalesComponent } from './components/centromedico/abmprofesionales/abmprofesionales.component';
 import { BusquedapacienteComponent } from './components/centromedico/busquedapaciente/busquedapaciente.component';
 import { GestionestadisticasComponent } from './components/gestionestadisticas/gestionestadisticas.component';
+import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
+import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -68,7 +70,12 @@ const routes: Routes = [
       {path: 'busquedapaciente', component: BusquedapacienteComponent}
     ]
   },
-  {path: 'gestionestadisticas', component: GestionestadisticasComponent},
+  {path: 'gestionestadisticas', component: GestionestadisticasComponent,
+    children: [
+      {path: 'listadosocios', component: ListadosociosComponent},
+      {path: 'graficoscuentas', component: GraficoscuentasComponent},
+    ]
+  },
   {path: '**', pathMatch: 'full', redirectTo: 'principal'},
 ];
 

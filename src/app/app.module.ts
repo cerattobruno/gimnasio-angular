@@ -36,6 +36,8 @@ import { AbmconsultoriosComponent } from './components/centromedico/abmconsultor
 import { AbmprofesionalesComponent } from './components/centromedico/abmprofesionales/abmprofesionales.component';
 import { BusquedapacienteComponent } from './components/centromedico/busquedapaciente/busquedapaciente.component';
 import { GestionestadisticasComponent } from './components/gestionestadisticas/gestionestadisticas.component';
+import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
+import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { GestionestadisticasComponent } from './components/gestionestadisticas/g
     AbmconsultoriosComponent,
     AbmprofesionalesComponent,
     BusquedapacienteComponent,
-    GestionestadisticasComponent
+    GestionestadisticasComponent,
+    ListadosociosComponent,
+    GraficoscuentasComponent
   ],
   imports: [
     BrowserModule,
