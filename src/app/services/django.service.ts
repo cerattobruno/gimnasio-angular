@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,8 @@ import { Observable } from 'rxjs';
 export class DjangoService {
 
   baseurl = "http://127.0.0.1:8000";
-
+  
+  
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   private httpOptions: any;
@@ -40,13 +43,12 @@ export class DjangoService {
   }
 
   crearSocio(post) {
-    this.httpOptions = {
+    this.httpOptions = {  
       headers: new HttpHeaders({
         'Content-Type': 'application/json',  
       })
     };
-    return this.http.post(`${ this.baseurl }/socios`, JSON.stringify(post), this.httpOptions);
+    return this.http.post(`${this.baseurl}/socios/`, JSON.stringify(post), this.httpOptions);
   }
 
-  
 }

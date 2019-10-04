@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {  DjangoService } from 'src/app/services/django.service';
 import {throwError} from 'rxjs';
 
+
 @Component({
   selector: 'app-abm',
   templateUrl: './abm.component.html',
@@ -11,15 +12,16 @@ import {throwError} from 'rxjs';
 export class AbmComponent implements OnInit {
 
   empleado: any = {};
+  socio: any = {};
   loading: boolean;
   public nuevo_socio: any;
+  
 
   empleados: any[] = [];
   socios: any[] = [];
 
   constructor( private django: DjangoService) { 
     this.loading = true;
-    // this.getEmpleado();
     this.getEmpleados();
     this.getSocios();
   }
@@ -28,8 +30,8 @@ export class AbmComponent implements OnInit {
     this.nuevo_socio = {};
   }
 
-  onSubmit() {
-  }
+  //onSubmit() {
+  //}
 
   getEmpleado = (empleado) => {
     this.django.getEmpleado(empleado.id).subscribe(
@@ -51,6 +53,13 @@ export class AbmComponent implements OnInit {
     );
   }
 
+  getSocio = (socio) => {
+    this.django.getSocio(socio.id).subscribe(
+      data => {
+        this.socio = data;
+        this.loading = false;
+      });
+  }
 
   getSocios = () => {
     this.django.getSocios().subscribe(
@@ -64,12 +73,15 @@ export class AbmComponent implements OnInit {
     );
   }
 
-  NuevoSocio() {
+  nuevoSocio() {
     this.django.crearSocio(this.nuevo_socio).subscribe(
        data => {
          // refresh the list
+         //this.nuevo_socio = data;
          this.getSocios();
+         console.log(data);
          return true;
+         
        },
        error => {
          console.error('Error saving!');
