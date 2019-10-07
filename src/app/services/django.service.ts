@@ -10,8 +10,7 @@ import { Observable} from 'rxjs';
 export class DjangoService {
 
   baseurl = "http://127.0.0.1:8000";
-  
-  
+
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   private httpOptions: any;
@@ -20,7 +19,7 @@ export class DjangoService {
     this.httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
-   }
+  }
 
   getEmpleados(): Observable<any> {
     return this.http.get(this.baseurl + '/empleados/',

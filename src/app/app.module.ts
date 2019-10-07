@@ -38,6 +38,7 @@ import { BusquedapacienteComponent } from './components/centromedico/busquedapac
 import { GestionestadisticasComponent } from './components/gestionestadisticas/gestionestadisticas.component';
 import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
 import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { GraficoscuentasComponent } from './components/gestionestadisticas/grafi
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,136 @@
-<p>
-  actividades works!
-</p>
+<div class="col mt-4">
+    <div class="row justify-content-center scroll">
+        <table class="table table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Sucursal</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let act of actividades; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{act.nombre}}</td>
+                    <td>${{act.precio}}</td>
+                    <td>{{act.sucursal}}</td>
+                    <!--
+                    <td>
+                        <div *ngFor="let d of dias; let i = index">
+                            {{ d }}: {{ act.horario[i] }}
+                        </div>
+                    </td>
+                    -->
+                    <td>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-warning btn-sm">
+                                <!-- Editar -->
+                                <i class="material-icons">mode_edit</i>
+                              </button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-danger btn-sm">
+                                <!-- Eliminar -->
+                                <i class="material-icons md-11">remove_circle</i>
+                              </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <h5>Datos actividad nueva</h5>
+                <hr>
+            </div>
+            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Precio</label>
+                        <input type="text" class="form-control" placeholder="Precio">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Sucursal</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Sucursal</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Día</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Día</option>
+                            <option *ngFor="let dia of dias; let i=index" value="1"> {{ dia }} </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Horario: Desde</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Hora inicio</option>
+                            <option *ngFor="let hora of horas; let i=index" value="1"> {{ hora }} </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Horario: Hasta</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Hora fin</option>
+                            <option *ngFor="let hora of horas; let i=index" value="1"> {{ hora }} </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Acciones</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-success btn-sm">
+                                <i class="material-icons">watch_later</i>
+                              </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-info btn-sm">
+                                <i class="material-icons">add_circle</i>
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <hr>
+                <div class="form-row">
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                        <!-- <i class="fa fa-save "></i> -->
+                        Guardar
+                        <i class="material-icons">save</i>
+                    </button>
+                    </div>
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                          Cancelar
+                          <i class="material-icons">cancel</i>
+                    </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

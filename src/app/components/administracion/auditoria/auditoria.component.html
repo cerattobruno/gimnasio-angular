@@ -1,3 +1,31 @@
-<p>
-  auditoria works!
-</p>
+<div class="col scroll">
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logger; let i=index">
+                <th scope="row">{{ i+1 }}-Log</th>
+                <td>{{ log }}</td>
+                <td>07/10/2019</td>
+                <td>
+                    <div *ngIf="(i%2) == 0; else esNegativo">
+                        <span class="badge badge-pill badge-success">
+                          <i class="material-icons">check_circle</i>
+                        </span>
+                    </div>
+                    <ng-template #esNegativo>
+                        <span class="badge badge-pill badge-danger">
+                            <i class="material-icons">report_problem</i>
+                        </span>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

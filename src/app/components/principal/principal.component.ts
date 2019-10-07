@@ -21,10 +21,10 @@ export class PrincipalComponent implements OnInit {
 
 
   ngOnInit() {
-    this.act1 = new ActividadesModel ('Musculacion', '900', ['7:00', '23:00']);
-    this.act2 = new ActividadesModel ('Boxeo', '900');
-    this.act3 = new ActividadesModel ('Crossfit', '900');
-    this.act4 = new ActividadesModel ('Pilates', '900');
+    this.act1 = new ActividadesModel ('Musculacion', '900', ['7:00', '23:00'], '1');
+    this.act2 = new ActividadesModel ('Boxeo', '900', [], '1');
+    this.act3 = new ActividadesModel ('Crossfit', '900', [], '1');
+    this.act4 = new ActividadesModel ('Pilates', '900', [], '1');
 
     this.actividades = [this.act1, this.act2, this.act3, this.act4];
 

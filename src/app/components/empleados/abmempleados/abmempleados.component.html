@@ -22,15 +22,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <button type="button" class="btn btn-block btn-warning btn-sm">
-                                  Editar
-                                  <i class="fa-user-edit"></i>
+                                  <!-- Editar -->
+                                  <i class="material-icons">create</i>
                                 </button>
                             </div>
 
                             <div class="col-md-6">
                                 <button type="button" class="btn btn-block btn-danger btn-sm">
-                                  Eliminar
-                                  <i class="fa fa-user-times"></i>
+                                  <!-- Eliminar -->
+                                  <i class="material-icons">clear</i>
                                 </button>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-12">
             <div>
-                <h5>Datos empleado</h5>
+                <h5>Datos empleado <i class="material-icons">person_add</i> </h5>
                 <hr>
             </div>
             <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
@@ -136,14 +136,14 @@
                 <div class="form-row">
                     <div class="form-group text-center col-md-6">
                         <button type="submit " class="btn btn-info w-100 ">
-                          <i class="fa fa-save "></i>
-                          Guardar
+                            Guardar
+                            <i class="material-icons">save</i>
                       </button>
                     </div>
                     <div class="form-group text-center col-md-6">
                         <button type="submit " class="btn btn-info w-100 ">
-                          <i class="fas fa-trash-alt"></i>
-                          Cancelar
+                            Cancelar
+                            <i class="material-icons">cancel</i>
                       </button>
                     </div>
                 </div>

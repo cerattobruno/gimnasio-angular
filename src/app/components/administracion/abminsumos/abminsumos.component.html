@@ -1,3 +1,131 @@
-<p>
-  abminsumos works!
-</p>
+<div class="col">
+    <div class="row justify-content-center scroll">
+        <table class="table table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha de compra</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Observaciones</th>
+                    <th scope="col">Actividad</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let insu of insumos; let i = index">
+                    <th scope="row">{{insu.idInsumo}}</th>
+                    <td>{{insu.nombre}}</td>
+                    <td>{{insu.fechaCompra}}</td>
+                    <td>
+                        <div *ngIf="insu.estado === 'Excelente' ">
+                            <span class="badge badge-pill badge-success">{{insu.estado}}</span>
+                        </div>
+                        <div *ngIf="insu.estado === 'Roto' ">
+                            <span class="badge badge-pill badge-warning">{{insu.estado}}</span>
+                        </div>
+                        <div *ngIf="insu.estado === 'En reparación' ">
+                            <span class="badge badge-pill badge-danger">{{insu.estado}}</span>
+                        </div>
+                    </td>
+                    <td>{{insu.observaciones}}</td>
+                    <td>{{insu.actividad}}</td>
+                    <td>{{insu.idProveedor}}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-warning btn-sm">
+                                  <!-- Editar -->
+                                  <i class="material-icons">create</i>
+                                </button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-danger btn-sm">
+                                  <!-- Eliminar -->
+                                  <i class="material-icons">clear</i>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <h5>Datos inusmo </h5>
+                <hr>
+            </div>
+            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Fecha de compra</label>
+                        <input type="date" class="form-control" placeholder="Fecha">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Estado</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Estado</option>
+                            <option *ngFor="let est of estado" value="1">{{est}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>ID</label>
+                        <input type="text" class="form-control" placeholder="ID" disabled>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Actividad</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Actividad</option>
+                            <option *ngFor="let act of actividades" value="1">{{act.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Proveedor</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Proveedor</option>
+                            <option *ngFor="let act of actividades" value="1">{{act.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Observaciones</label>
+                        <textarea type="textarea" class="form-control"></textarea>
+                    </div>
+
+                </div>
+
+
+
+
+                <hr>
+                <div class="form-row">
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                            Guardar
+                            <i class="material-icons">save</i>
+                      </button>
+                    </div>
+                    <div class="form-group text-center col-md-6">
+                        <button type="submit " class="btn btn-info w-100 ">
+                            Cancelar
+                            <i class="material-icons">cancel</i>
+                      </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

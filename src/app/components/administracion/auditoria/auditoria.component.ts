@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuditoriaComponent implements OnInit {
 
+  logger: Array<any> = ['Se guardo socio correctamente', 'Se guardo socio correctamente',
+   'Error al guardar socio', 'Se guardo socio correctamente', 'Error al guardar socio',
+   'Error al guardar socio', 'Se guardo socio correctamente', 'Error al guardar socio',
+    'Se guardó socio correctamente'];
+
   constructor() { }
 
   ngOnInit() {
