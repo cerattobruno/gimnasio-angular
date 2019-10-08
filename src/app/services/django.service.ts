@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -50,4 +49,18 @@ export class DjangoService {
     return this.http.post(`${this.baseurl}/socios/`, JSON.stringify(post), this.httpOptions);
   }
 
+  crearEmpleado(post) {
+    this.httpOptions = {  
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',  
+      })
+    };
+    return this.http.post(`${this.baseurl}/empleados/`, JSON.stringify(post), this.httpOptions);
+  }
+
+  eliminarEmpleado(id): Observable<any> {
+    return this.http.delete(this.baseurl + '/empleados/' + id + '/',
+    {headers: this.httpHeaders});
+  }
+  
 }
