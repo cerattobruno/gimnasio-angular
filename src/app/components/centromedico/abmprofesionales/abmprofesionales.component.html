@@ -1,3 +1,73 @@
-<p>
-  abmprofesionales works!
-</p>
+<br>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <div>
+            <h5>Datos profesional </h5>
+            <hr>
+        </div>
+        <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>ID</label>
+                    <input type="text" class="form-control" placeholder="ID" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Profesion</label>
+                    <input type="text" class="form-control" placeholder="Profesion">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Matricula</label>
+                    <input type="text" class="form-control" placeholder="Matricula">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Horarios</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>HAY QUE VER COMO HACEMOS LOS HORARIOS!!!</option>
+                      <!-- <option *ngFor="let act of actividades" value="1">{{act.nombre}}</option> -->
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Sucursal</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Sucursal</option>
+                        <!-- <option *ngFor="let act of actividades" value="1">{{act.nombre}}</option> -->
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Fecha fin</label>
+                    <input type="date" class="form-control" placeholder="Fecha fin">
+                </div>
+            </div>
+
+
+
+
+            <hr>
+            <div class="form-row">
+                <div class="form-group text-center col-md-6">
+                    <button type="submit " class="btn btn-info w-100 ">
+                      Guardar
+                      <!-- <i class="material-icons">save</i> -->
+                      <i class="fa fa-save"></i>
+                </button>
+                </div>
+                <div class="form-group text-center col-md-6">
+                    <button type="submit " class="btn btn-info w-100 ">
+                      Cancelar
+                      <!-- <i class="material-icons">cancel</i> -->
+                      <i class="fa fa-window-close"></i>
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -6,5 +6,5 @@ export class ConsultorioModel {
      public sucursal: string,
 
     ) {}
- 
- }
+
+}

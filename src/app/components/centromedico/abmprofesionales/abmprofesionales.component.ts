@@ -12,4 +12,5 @@ export class AbmprofesionalesComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {}
 }

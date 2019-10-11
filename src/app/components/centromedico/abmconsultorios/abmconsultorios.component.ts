@@ -12,4 +12,5 @@ export class AbmconsultoriosComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {}
 }

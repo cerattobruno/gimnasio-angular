@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InsumoModel } from 'src/app/models/insumo.model';
 import { ActividadesModel} from 'src/app/models/actividades.model';
- 
+
 @Component({
   selector: 'app-abminsumos',
   templateUrl: './abminsumos.component.html',
@@ -49,4 +49,5 @@ export class AbminsumosComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {}
 }
