@@ -28,6 +28,7 @@ import { BusquedapacienteComponent } from './components/centromedico/busquedapac
 import { GestionestadisticasComponent } from './components/gestionestadisticas/gestionestadisticas.component';
 import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
 import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
+import { AbmactividadesComponent } from './components/actividades/abmactividades/abmactividades.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -57,6 +58,8 @@ const routes: Routes = [
     ]
   },
   {path: 'actividades', component: ActividadesComponent},
+  {path: 'actividades/:id', component: AbmactividadesComponent},
+
   {path: 'gestionmarketing', component: GestionmarketingComponent,
     children: [
       {path: 'potencialesclientes', component: PotencialesclientesComponent},
