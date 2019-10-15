@@ -29,11 +29,15 @@ import { GestionestadisticasComponent } from './components/gestionestadisticas/g
 import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
 import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
 import { AbmactividadesComponent } from './components/actividades/abmactividades/abmactividades.component';
+import { LoginComponent } from './components/shared/login/login.component';
+import { ListaComponent } from './components/socios/lista/lista.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
   {path: 'socios', component: SociosComponent,
     children: [
+      {path: '', pathMatch: 'full', redirectTo: 'lista'},
+      {path: 'lista', component: ListaComponent},
       {path: 'abm', component: AbmComponent},
       {path: 'modificar', component: ModificarComponent},
       {path: 'cobrar', component: CobrarComponent},
@@ -79,6 +83,7 @@ const routes: Routes = [
       {path: 'graficoscuentas', component: GraficoscuentasComponent},
     ]
   },
+  { path: 'login', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', pathMatch: 'full', redirectTo: 'principal'},
 ];
 

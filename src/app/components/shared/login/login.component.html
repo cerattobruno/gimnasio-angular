@@ -1,0 +1,23 @@
+<div class="container m-auto login">
+    <h1>Iniciar sesión</h1>
+
+    <form class="form">
+        <div class="form-row">
+            <label>Usuario</label>
+            <input type="text" class="form-control" #username name="username" placeholder="Usuario">
+        </div>
+
+        <div class="form-row">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" #password name="password" placeholder="Contraseña">
+        </div>
+
+        <div class="form-row">
+            <button type="submit" (click)="logIn(username.value, password.value, $event)" id="login-button">Iniciar sesión</button>
+        </div>
+
+        <div class="form-row">
+            <p><span id="errormessage">{{ errormessage }}</span></p>
+        </div>
+    </form>
+</div>

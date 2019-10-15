@@ -39,6 +39,8 @@ import { GestionestadisticasComponent } from './components/gestionestadisticas/g
 import { ListadosociosComponent } from './components/gestionestadisticas/listadosocios/listadosocios.component';
 import { GraficoscuentasComponent } from './components/gestionestadisticas/graficoscuentas/graficoscuentas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/shared/login/login.component';
+import { ListaComponent } from './components/socios/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BusquedapacienteComponent,
     GestionestadisticasComponent,
     ListadosociosComponent,
-    GraficoscuentasComponent
+    GraficoscuentasComponent,
+    LoginComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
