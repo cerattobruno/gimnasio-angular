@@ -28,18 +28,18 @@ export class LoginComponent implements OnInit {
         this.token = Object.values(res)[0];
         if (this.token != null) {
           localStorage.setItem('usertoken', this.token);
-          this.errormessage = "";
+          this.errormessage = '';
           this.navigate();
         }
         else {
           localStorage.removeItem('usertoken');
-          this.errormessage = "Hubo un error iniciando sesión, verifique su usuario y contraseña";
+          this.errormessage = 'Usuario y/o contraseña incorrectos!';
           console.log(res);
         }
       },
       error => {
         localStorage.removeItem('usertoken');
-        this.errormessage = "Hubo un error iniciando sesión, verifique su usuario y contraseña";
+        this.errormessage = 'Usuario y/o contraseña incorrectos!';
         console.log(error);
       }
     );

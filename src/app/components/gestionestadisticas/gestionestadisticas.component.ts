@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-gestionestadisticas',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionestadisticasComponent implements OnInit {
 
-  constructor() { }
+  constructor( private login: LoginService) { }
 
   ngOnInit() {
+    this.login.checktoken();
   }
 
 }

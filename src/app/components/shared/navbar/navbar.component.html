@@ -1,4 +1,4 @@
-<nav class="navbar nav-pills  navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar  nav-pills  navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
         <!-- <i class="fas fa-dumbbell"></i> -->
         <img src="../../../../assets/logo1.png" width="30" height="30" class="d-inline-block align-top" alt=""> SmartGYM
@@ -31,11 +31,18 @@
                 <a class="nav-link" [routerLink]="['centromedico']" [routerLinkActive]="['active']">Consultorios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['gestionestadisticas']" [routerLinkActive]="['active']">Estadísticas</a>
-            </li>
-            <li>
-                <button (click)="this.login.logout()" *ngIf="this.login.user_token">Cerrar sesión</button>
+                <a class="nav-link" [routerLink]="['gestionestadisticas']" [routerLinkActive]="['active']">Estadísticas </a>
             </li>
         </ul>
+        <span class="navbar-text">
+            <span class="letras ">Bienvenido {{user}}</span>
+        <button class="btn btn-sm btn-danger m-auto boton " (click)="this.login.logout()" *ngIf="this.login.user_token">
+                Loguot
+                <!--
+                <i class="fa fa-sign-out-alt"></i>
+                -->
+            </button>
+        </span>
+
     </div>
 </nav>

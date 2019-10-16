@@ -8,9 +8,12 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
+  user: string = localStorage.getItem('usertoken') ;
+
   constructor(private login: LoginService) { }
 
   ngOnInit() {
+
   }
 
 }
