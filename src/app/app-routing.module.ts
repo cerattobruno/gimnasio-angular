@@ -31,6 +31,8 @@ import { GraficoscuentasComponent } from './components/gestionestadisticas/grafi
 import { AbmactividadesComponent } from './components/actividades/abmactividades/abmactividades.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { ListaComponent } from './components/socios/lista/lista.component';
+import { ListadoempleadosComponent } from './components/empleados/listadoempleados/listadoempleados.component';
+import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -47,10 +49,14 @@ const routes: Routes = [
   },
   {path: 'empleados', component: EmpleadosComponent,
     children: [
+      {path: '', pathMatch: 'full', redirectTo: 'listadoempleados'},
+      {path: 'listadoempleados', component: ListadoempleadosComponent},
       {path: 'abmempleados', component: AbmempleadosComponent},
       {path: 'horastrabajadas', component: HorastrabajadasComponent}
     ]
   },
+  {path: 'empleados/:id', component: ModificarempleadoComponent},
+  {path: 'empleados/horastrabajadas/:id', component: HorastrabajadasComponent},
   {path: 'administracion', component: AdministracionComponent,
     children: [
       {path: 'altaprov', component: AltaprovComponent},

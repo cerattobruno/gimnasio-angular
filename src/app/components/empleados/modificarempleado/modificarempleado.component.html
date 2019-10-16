@@ -1,0 +1,120 @@
+<br>
+<div class="row m-auto">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-10">
+                <h5>Modificar empleado: <small>Bruno Ceratto</small></h5>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" [routerLink]="['/empleados']" class="float-right btn btn-danger w-10 ">
+                    <!-- <i class="material-icons">cancel</i> -->
+                    <i class="fa fa-arrow-left"></i>
+                    
+                </button>
+            </div>
+        </div>
+        <hr>
+        <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevo_empleado.nombre" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Apellido</label>
+                    <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="nuevo_empleado.apellido" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Dni</label>
+                    <input type="text" class="form-control" placeholder="Dni" [(ngModel)]="nuevo_empleado.dni" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Genero</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Género</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                        <option value="3">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" class="form-control" placeholder="Fecha de nacimiento" [(ngModel)]="nuevo_empleado.fecha_nacimiento" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Teléfono</label>
+                    <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Correo</label>
+                    <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_empleado.email" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Dirección</label>
+                    <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="nuevo_empleado.domicilio" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Fecha inicio</label>
+                    <input type="date" class="form-control" placeholder="Fecha inicio" [(ngModel)]="nuevo_empleado.fecha_inicio" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Actividad</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija una actividad</option>
+                        <option value="1">Musculación</option>
+                        <option value="2">Boxeo</option>
+                        <option value="3">Funcional</option>
+                        <option value="1">Crossfit</option>
+                        <option value="2">Pilates</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Ficha médica</label>
+                    <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Especialidad</label>
+                    <input type="text" class="form-control" placeholder="Especialidad">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Sucursal</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija una sucursal</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Observaciones</label>
+                    <textarea type="textarea" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <hr>
+            <div class="form-row">
+                <div class="form-group text-center col-md-6">
+                    <button (click)="nuevoEmpleado()" type="submit " class="btn btn-info w-100 ">
+                        Guardar
+                        <i class="material-icons">save</i>
+                  </button>
+                </div>
+                <div class="form-group text-center col-md-6">
+                    <button type="submit " class="btn btn-info w-100 ">
+                        Cancelar
+                        <i class="material-icons">cancel</i>
+                  </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

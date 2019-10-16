@@ -6,3 +6,9 @@
 .boton {
     border-radius: 2rem;
 }
+
+.titulo {
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Righteous', cursive;*/
+}

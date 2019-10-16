@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
 
   private token: string;
-  private errormessage: string;
+  public errormessage: string;
 
   constructor( private router: Router,
                private loginService: LoginService) {

@@ -41,6 +41,8 @@ import { GraficoscuentasComponent } from './components/gestionestadisticas/grafi
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/shared/login/login.component';
 import { ListaComponent } from './components/socios/lista/lista.component';
+import { ListadoempleadosComponent } from './components/empleados/listadoempleados/listadoempleados.component';
+import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { ListaComponent } from './components/socios/lista/lista.component';
     ListadosociosComponent,
     GraficoscuentasComponent,
     LoginComponent,
-    ListaComponent
+    ListaComponent,
+    ListadoempleadosComponent,
+    ModificarempleadoComponent
   ],
   imports: [
     BrowserModule,

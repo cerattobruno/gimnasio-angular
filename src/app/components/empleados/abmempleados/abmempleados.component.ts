@@ -12,7 +12,7 @@ export class AbmempleadosComponent implements OnInit {
   empleados: any[] = [];
   empleado: any = {};
   public nuevo_empleado: any;
-  
+
 
 
   constructor(private django: DjangoService) {
