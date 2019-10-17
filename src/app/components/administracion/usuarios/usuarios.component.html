@@ -1,0 +1,22 @@
+<div class="col-md-10 col  container login">
+    <div class="row form-group input-group">
+        <label>Crear nuevo usuario</label>
+        <br>
+    </div>
+
+    <div class="row form-group input-group">
+        <input [(ngModel)]="register.username" class="form-control boton" placeholder="username"><br>
+    </div>
+
+    <div class="row form-group input-group">
+        <input [(ngModel)]="register.password" class="form-control boton" type="password" placeholder="password"><br>
+    </div>
+
+    <div class="row form-group input-group">
+        <input [(ngModel)]="register.email" class="form-control boton" type="email" placeholder="email"><br>
+    </div>
+
+    <div class="row form-group input-group">
+        <button class="btn btn-info m-auto w-50 boton " (click)="registerUser()">Registrar Usuario</button>
+    </div>
+</div>

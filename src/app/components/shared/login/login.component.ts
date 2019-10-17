@@ -21,17 +21,22 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    /*
     this.register = {
       username: '',
       password: '',
       email: ''
     };
+    */
     this.input = {
       username: '',
       password: '',
     };
+
   }
 
+  /*
   registerUser() {
     this.djangoService.registroUsuarios(this.register).subscribe(
       response => {
@@ -41,6 +46,7 @@ export class LoginComponent implements OnInit {
       error => console.log('error', error)
     );
   }
+  */
 
 
   loginUser() {
