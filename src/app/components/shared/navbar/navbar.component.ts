@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   user: string = localStorage.getItem('usertoken') ;
 
-  constructor(private login: LoginService) { }
+  constructor(private djangoService: DjangoService) { }
 
   ngOnInit() {
 

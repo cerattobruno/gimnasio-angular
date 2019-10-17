@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActividadesModel } from 'src/app/models/actividades.model';
 import { LoginService } from 'src/app/services/login.service';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-actividades',
@@ -22,7 +23,7 @@ export class ActividadesComponent implements OnInit {
   '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00',
   '22:30', '23:00'];
 
-  constructor( private login: LoginService) {
+  constructor( private djangoService: DjangoService) {
     this.a1 = new ActividadesModel ('Musculación', '700', ['07:30-23:00', '07:30-23:00', '07:30-23:00',
                                                         '07:30-23:00', '07:30-23:00', '07:30-23:00'],
                                                         '1');
@@ -38,7 +39,7 @@ export class ActividadesComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.login.checktoken();
+    this.djangoService.checktoken();
   }
 
 }

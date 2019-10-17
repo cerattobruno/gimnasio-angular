@@ -33,6 +33,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { ListaComponent } from './components/socios/lista/lista.component';
 import { ListadoempleadosComponent } from './components/empleados/listadoempleados/listadoempleados.component';
 import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
+import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -64,7 +65,8 @@ const routes: Routes = [
       {path: 'pagoprov', component: PagoprovComponent},
       {path: 'abminsumos', component: AbminsumosComponent},
       {path: 'sucursal', component: SucursalComponent},
-      {path: 'auditoria', component: AuditoriaComponent}
+      {path: 'auditoria', component: AuditoriaComponent},
+      {path: 'listadoproveedores', component: ListadoproveedoresComponent}
     ]
   },
   {path: 'actividades', component: ActividadesComponent},

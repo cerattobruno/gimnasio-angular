@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-gestionmarketing',
@@ -8,10 +9,10 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class GestionmarketingComponent implements OnInit {
 
-  constructor( private login: LoginService) { }
+  constructor( private djangoService: DjangoService) { }
 
   ngOnInit() {
-    this.login.checktoken();
+    this.djangoService.checktoken();
   }
 
 }

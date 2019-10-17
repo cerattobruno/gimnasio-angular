@@ -32,26 +32,32 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  registerUser(){
+  registerUser() {
     this.djangoService.registroUsuarios(this.register).subscribe(
       response => {
-        alert('El usuario ' + this.register.username + ' fue creado con exito!')
+        alert('El usuario ' + this.register.username + ' fue creado con exito!');
+        this.navigate();
       },
       error => console.log('error', error)
     );
   }
 
 
-  loginUser(){
+  loginUser() {
     this.djangoService.loginUsuarios(this.input).subscribe(
       response => {
-        //this.navigate();
-        console.log(response);
-        //this.navigate();
-        alert('El usuario ' + this.input.username + ' ingreso con exito!')
+        localStorage.setItem('usertoken', response.token);
         this.navigate();
+        // console.log("hola: ", response);
+        // console.log(localStorage.getItem('usertoken'));
+        // this.navigate();
+        // alert('El usuario ' + this.input.username + ' ingreso con exito!');
+        // this.navigate();
       },
-      error => console.log('error', error)
+      error => {
+        // console.log('error', error.message);
+        this.errormessage = error.message;
+      }
     );
   }
 

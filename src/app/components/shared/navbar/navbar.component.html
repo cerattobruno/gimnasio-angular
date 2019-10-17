@@ -7,7 +7,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <div *ngIf="this.login.user_token" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngIf="this.djangoService.user_token" class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav  mr-auto top-menu">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['principal']" [routerLinkActive]="['active']">Principal <span class="sr-only">(current)</span></a>
@@ -36,8 +36,8 @@
         </ul>
         <span class="navbar-text">
             <span class="letras ">Bienvenido {{user}}</span>
-        <button class="btn btn-sm btn-danger m-auto boton " (click)="this.login.logout()" *ngIf="this.login.user_token">
-                Loguot
+        <button class="btn btn-sm btn-danger m-auto boton " (click)="this.djangoService.logout()" *ngIf="this.djangoService.user_token">
+                Salir
                 <!--
                 <i class="fa fa-sign-out-alt"></i>
                 -->

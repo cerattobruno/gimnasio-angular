@@ -43,6 +43,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { ListaComponent } from './components/socios/lista/lista.component';
 import { ListadoempleadosComponent } from './components/empleados/listadoempleados/listadoempleados.component';
 import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
+import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { ModificarempleadoComponent } from './components/empleados/modificarempl
     LoginComponent,
     ListaComponent,
     ListadoempleadosComponent,
-    ModificarempleadoComponent
+    ModificarempleadoComponent,
+    ListadoproveedoresComponent
   ],
   imports: [
     BrowserModule,

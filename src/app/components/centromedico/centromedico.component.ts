@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsultorioModel } from 'src/app/models/consultorio.model';
 import { ProfesionalModel } from 'src/app/models/profesional.model';
 import { LoginService } from 'src/app/services/login.service';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-centromedico',
@@ -28,7 +29,7 @@ export class CentromedicoComponent implements OnInit {
   p3: ProfesionalModel;
   p4: ProfesionalModel;
 
-  constructor( private login: LoginService) {
+  constructor( private djangoService: DjangoService) {
     this.c1 = new ConsultorioModel ('Consul001-01', 'Box 1', '', '01');
     this.c2 = new ConsultorioModel ('Consul002-01', 'Box 2', '', '01');
     this.c3 = new ConsultorioModel ('Consul001-02', 'Box 1', '', '02');
@@ -53,7 +54,7 @@ export class CentromedicoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.login.checktoken();
+    this.djangoService.checktoken();
   }
 
   onSubmit() {}
