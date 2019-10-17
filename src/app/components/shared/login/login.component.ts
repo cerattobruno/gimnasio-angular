@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-login',
@@ -11,43 +12,51 @@ export class LoginComponent implements OnInit {
 
   private token: string;
   public errormessage: string;
+  register;
+  input;
 
   constructor( private router: Router,
-               private loginService: LoginService) {
+               private loginService: LoginService,
+               private djangoService: DjangoService) {
   }
 
   ngOnInit() {
+    this.register = {
+      username: '',
+      password: '',
+      email: ''
+    };
+    this.input = {
+      username: '',
+      password: '',
+    };
   }
 
-  logIn(username: string, password: string, event: Event) {
-    event.preventDefault(); // Avoid default action for the submit button of the login form
-
-    // Calls service to login user to the api rest
-    this.loginService.login(username, password).subscribe(
-      res => {
-        this.token = Object.values(res)[0];
-        if (this.token != null) {
-          localStorage.setItem('usertoken', this.token);
-          this.errormessage = '';
-          this.navigate();
-        }
-        else {
-          localStorage.removeItem('usertoken');
-          this.errormessage = 'Usuario y/o contraseña incorrectos!';
-          console.log(res);
-        }
+  registerUser(){
+    this.djangoService.registroUsuarios(this.register).subscribe(
+      response => {
+        alert('El usuario ' + this.register.username + ' fue creado con exito!')
       },
-      error => {
-        localStorage.removeItem('usertoken');
-        this.errormessage = 'Usuario y/o contraseña incorrectos!';
-        console.log(error);
-      }
+      error => console.log('error', error)
     );
+  }
 
+
+  loginUser(){
+    this.djangoService.loginUsuarios(this.input).subscribe(
+      response => {
+        //this.navigate();
+        console.log(response);
+        //this.navigate();
+        alert('El usuario ' + this.input.username + ' ingreso con exito!')
+        this.navigate();
+      },
+      error => console.log('error', error)
+    );
   }
 
   navigate() {
-    this.router.navigateByUrl('/inicio');
+    this.router.navigateByUrl('/principal');
   }
 
 }
