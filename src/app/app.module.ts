@@ -45,6 +45,7 @@ import { ListadoempleadosComponent } from './components/empleados/listadoemplead
 import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
 import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 import { UsuariosComponent } from './components/administracion/usuarios/usuarios.component';
+import { EntradaComponent } from './components/entrada/entrada.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { UsuariosComponent } from './components/administracion/usuarios/usuarios
     ListadoempleadosComponent,
     ModificarempleadoComponent,
     ListadoproveedoresComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    EntradaComponent
   ],
   imports: [
     BrowserModule,

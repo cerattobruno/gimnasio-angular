@@ -1,22 +1,42 @@
-<div class="col-md-10 col  container login">
-    <div class="row form-group input-group">
-        <label>Crear nuevo usuario</label>
-        <br>
+<div class="col-md-10  container ">
+    <div class="row">
+        <h4>Crear nuevo usuario</h4>
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row form-group input-group">
+                <input [(ngModel)]="register.username" class="form-control " placeholder="Usuario"><br>
+            </div>
+
+            <div class="row form-group input-group">
+                <input [(ngModel)]="register.password" class="form-control " type="password" placeholder="Contraseña"><br>
+            </div>
+
+            <div class="row form-group input-group">
+                <input [(ngModel)]="register.email" class="form-control " type="email" placeholder="Correo"><br>
+            </div>
+
+            <div class="row form-group input-group">
+                <div class="col-md-6">
+                    <button class="btn btn-info m-auto w-100  " (click)="registerUser()">Registrar Usuario</button>
+                </div>
+
+                <div class="col-md-6">
+                    <button class="btn btn-info m-auto w-100  ">Cancelar</button>
+                </div>
+
+            </div>
+
+            <div *ngIf="errormessage" class="form-group">
+                <div class="alert alert-danger w-100 text-center boton" role="alert">
+                    <span id="errormessage">{{ errormessage }}</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row form-group input-group">
-        <input [(ngModel)]="register.username" class="form-control boton" placeholder="username"><br>
-    </div>
 
-    <div class="row form-group input-group">
-        <input [(ngModel)]="register.password" class="form-control boton" type="password" placeholder="password"><br>
-    </div>
-
-    <div class="row form-group input-group">
-        <input [(ngModel)]="register.email" class="form-control boton" type="email" placeholder="email"><br>
-    </div>
-
-    <div class="row form-group input-group">
-        <button class="btn btn-info m-auto w-50 boton " (click)="registerUser()">Registrar Usuario</button>
-    </div>
 </div>

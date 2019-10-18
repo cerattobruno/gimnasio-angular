@@ -35,6 +35,7 @@ import { ListadoempleadosComponent } from './components/empleados/listadoemplead
 import { ModificarempleadoComponent } from './components/empleados/modificarempleado/modificarempleado.component';
 import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 import { UsuariosComponent } from './components/administracion/usuarios/usuarios.component';
+import { EntradaComponent } from './components/entrada/entrada.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -93,6 +94,7 @@ const routes: Routes = [
       {path: 'graficoscuentas', component: GraficoscuentasComponent},
     ]
   },
+  {path: 'entrada', component: EntradaComponent},
   { path: 'login', component: LoginComponent,  pathMatch: 'full'},
   {path: '**', pathMatch: 'full', redirectTo: 'principal'},
 ];

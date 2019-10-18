@@ -5,14 +5,18 @@
     /* background-color: rgba(221, 217, 217, 0.534); */
     /* border-radius: 2rem; */
     overflow: hidden;
-    margin-top: auto;
-    margin-left: auto;
+    margin-top: 15%;
+    margin-left: 25%;
     ;
 }
 
-
-/*
 .boton {
     border-radius: 2rem;
 }
-*/
+
+.fondo {
+    background-image: url('../../../assets/fondo.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    height: 80%;
+}
