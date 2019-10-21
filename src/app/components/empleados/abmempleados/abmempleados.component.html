@@ -91,12 +91,23 @@
                         <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Correo</label>
-                        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_empleado.email" [ngModelOptions]="{standalone: true}">
+                        <label>Teléfono de emergencia</label>
+                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Dirección</label>
                         <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="nuevo_empleado.domicilio" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Correo</label>
+                        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_empleado.email" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Foto</label>
+                        <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
                     </div>
                 </div>
 

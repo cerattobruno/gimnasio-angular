@@ -1,84 +1,122 @@
 <div class="col">
 
-    <div class="row justify-content-center ">
-        <form class=" form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Ingrese el DNI" aria-label="Buscar">
-            <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-    </div>
-
-    <div class="row mt-4 ml-2">
+    <div class="row">
         <div class="col-12">
-            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5 class="float-left">Datos socio: <small>Nombre Socio</small></h5>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" [routerLink]="['/socios/lista']" class="float-right btn btn-danger w-10 ">
+                                <!-- <i class="material-icons">cancel</i> -->
+                                <i class="fa fa-arrow-left"></i>
+                                
+                            </button>
+                </div>
+            </div>
+            <br>
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre">
+                        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevo_socio.nombre" name="nombre">
                     </div>
-                    <div class="form-group  col-md-6">
+                    <div class="form-group col-md-4">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" placeholder="Apellido">
+                        <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="nuevo_socio.apellido" name="apellido">
                     </div>
-                </div>
-
-                <div class="form-row ">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label>Dni</label>
-                        <input type="text" class="form-control" placeholder="Dni">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Fecha de nacimiento</label>
-                        <input type="date" class="form-control" placeholder="Fecha de nacimiento">
+                        <input type="text" class="form-control" placeholder="Dni" [(ngModel)]="nuevo_socio.dni" name="dni">
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
+                        <label>Fecha de nacimiento</label>
+                        <input type="date" class="form-control" placeholder="Fecha de nacimiento" [(ngModel)]="nuevo_socio.fecha_nacimiento" name="fecha_nacimiento">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Fecha de inicio</label>
+                        <input type="date" class="form-control" placeholder="Fecha de inicio" [(ngModel)]="nuevo_socio.fecha_inicio" name="fecha_inicio">
+                    </div>
+                    <div class="form-group col-md-4">
                         <label>Correo</label>
-                        <input type="email" class="form-control" placeholder="Correo">
+                        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_socio.email" name="email">
                     </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Foto</label>
+                        <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Telefono Celular</label>
+                        <input type="tel" class="form-control" placeholder="Telefono Celular" [(ngModel)]="nuevo_socio.celular" name="celular">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Telefono de Emergencia</label>
+                        <input type="tel" class="form-control" placeholder="Telefono de Emergencia" [(ngModel)]="nuevo_socio.telefono_emergencia" name="tel_emergencia">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Domicilio</label>
+                        <input type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="nuevo_socio.domicilio" name="domicilio">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Saldo</label>
+                        <input type="text" class="form-control" placeholder="Saldo" [(ngModel)]="nuevo_socio.saldo" name="saldo">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Observaciones Medicas</label>
+                        <input type="text" class="form-control" placeholder="Observaciones Medicas" [(ngModel)]="nuevo_socio.observaciones_medicas" name="observaciones_medicas">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Actividad</label>
+                        <!--
+                                    <input type="text" class="form-control" placeholder="Actividad">
+                                    -->
+                        <select class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Elija una activiad</option>
+                                        <option value="1">Musculación</option>
+                                        <option value="2">Boxeo</option>
+                                        <option value="3">Funcional</option>
+                                        <option value="1">Crossfit</option>
+                                        <option value="2">Pilates</option>
+                                        <option value="3">Pase Libre</option>
+                                        <option value="3">Pase Libre + Crossfit</option>
+                                    </select>
+                    </div>
+
                     <div class="form-group col-md-6">
-                        <label>Telefono</label>
-                        <input type="tel" class="form-control" placeholder="Telefono">
+                        <label>Ficha médica</label>
+                        <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
                     </div>
+
+
                 </div>
 
 
-                <div class="form-group">
-                    <label>Actividad</label>
-                    <!--
-                        <input type="text" class="form-control" placeholder="Actividad">
-                        -->
-                    <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Elija una activiad</option>
-                            <option value="1">Musculación</option>
-                            <option value="2">Boxeo</option>
-                            <option value="3">Funcional</option>
-                            <option value="1">Crossfit</option>
-                            <option value="2">Pilates</option>
-                            <option value="3">Pase Libre</option>
-                            <option value="3">Pase Libre + Crossfit</option>
-                        </select>
-                </div>
+
+
+
 
                 <hr>
-                <div class="form-row">
-                    <div class="form-group text-center col-md-6 ">
-                        <button type="submit " class="btn btn-info w-100 ">
-                            <i class="fa fa-save "></i>
-                            Modificar
-                        </button>
-                    </div>
-
-                    <div class="form-group text-center col-md-6">
-                        <button type="submit " class="btn btn-info w-100 ">
-                                <i class="far fa-trash-alt"></i>
-                                Eliminar
+                <div class="form-group text-center ">
+                    <button (click)="nuevoSocio()" type="submit" class="btn btn-info w-100 ">
+                                <i class="fa fa-save "></i>
+                                Guardar
                             </button>
-                    </div>
                 </div>
-
             </form>
         </div>
-
     </div>
+
+
+</div>

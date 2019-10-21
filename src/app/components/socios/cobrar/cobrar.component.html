@@ -1,45 +1,46 @@
 <div class="col">
 
-    <div class="row justify-content-center ">
-        <form class=" form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Ingrese el DNI" aria-label="Buscar">
-            <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-    </div>
-
-    <div class="row mt-4 ml-2">
+    <div class="row">
         <div class="col-12">
-            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5 class="float-left">Datos socio: <small>Nombre Socio</small></h5>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" [routerLink]="['/socios/lista']" class="float-right btn btn-danger w-10 ">
+                        <!-- <i class="material-icons">cancel</i> -->
+                        <i class="fa fa-arrow-left"></i>                    
+                    </button>
+                </div>
+            </div>
+            <br>
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre" disabled>
+                        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevo_socio.nombre" name="nombre" disabled>
                     </div>
-                    <div class="form-group  col-md-6">
+                    <div class="form-group col-md-4">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" placeholder="Apellido" disabled>
+                        <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="nuevo_socio.apellido" name="apellido" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Actividad</label>
+                        <input type="text" class="form-control" placeholder="Actividad" [(ngModel)]="nuevo_socio.dni" name="actividad" disabled>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group  col-md-6">
-                        <label>Actividad</label>
-                        <input type="text" class="form-control" placeholder="Actividad" disabled>
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label>Precio</label>
+                        <label>Saldo</label>
                         <input type="number" class="form-control" placeholder="$$$$" disabled>
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="form-group  col-md-6">
                         <label>Observaciones</label>
                         <textarea type="textarea" class="form-control"></textarea>
                     </div>
-                </div>
-                <hr>
 
+                </div>
 
                 <div class="form-row">
                     <div class="form-check form-check-inline col-md-3">
@@ -77,33 +78,33 @@
                         <div class="form-group  col-md-6">
                             <label>Vencimiento</label>
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Mes</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="1">4</option>
-                                <option value="2">5</option>
-                                <option value="3">6</option>
-                                <option value="1">7</option>
-                                <option value="2">8</option>
-                                <option value="3">9</option>
-                                <option value="1">10</option>
-                                <option value="2">11</option>
-                                <option value="3">12</option>
-                            </select>
+                                    <option selected>Mes</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="1">4</option>
+                                    <option value="2">5</option>
+                                    <option value="3">6</option>
+                                    <option value="1">7</option>
+                                    <option value="2">8</option>
+                                    <option value="3">9</option>
+                                    <option value="1">10</option>
+                                    <option value="2">11</option>
+                                    <option value="3">12</option>
+                                </select>
                         </div>
                         <div class="form-group  col-md-6">
                             <label>.</label>
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Año</option>
-                                <option value="1">2019</option>
-                                <option value="2">2020</option>
-                                <option value="3">2021</option>
-                                <option value="1">2022</option>
-                                <option value="2">2023</option>
-                                <option value="3">2024</option>
-                                <option value="1">2025</option>
-                            </select>
+                                    <option selected>Año</option>
+                                    <option value="1">2019</option>
+                                    <option value="2">2020</option>
+                                    <option value="3">2021</option>
+                                    <option value="1">2022</option>
+                                    <option value="2">2023</option>
+                                    <option value="3">2024</option>
+                                    <option value="1">2025</option>
+                                </select>
                         </div>
                     </div>
 
@@ -115,11 +116,11 @@
                         <div class="form-group  col-md-4">
                             <label>Cant. cuotas</label>
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>1</option>
-                                <option value="1">1</option>
-                                <option value="2">3</option>
-                                <option value="3">6</option>
-                            </select>
+                                    <option selected>1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="3">6</option>
+                                </select>
                         </div>
                         <div class="form-group  col-md-4">
                             <label>Cuotas de</label>
@@ -132,19 +133,18 @@
                 <div class="form-row">
                     <div class="form-group text-center col-md-6 ">
                         <button type="submit " class="btn btn-info w-100 ">
-                        <i class="fas fa-cash-register"></i>
-                        Cobrar
-                        </button>
+                            <i class="fa fa-cash-register"></i>
+                            Cobrar
+                            </button>
                     </div>
 
                     <div class="form-group text-center col-md-6">
                         <button type="submit " class="btn btn-info w-100 ">
-                            <i class="fas fa-trash-alt"></i>
-                            Cancelar operación
-                        </button>
+                                <i class="fa fa-trash-alt"></i>
+                                Cancelar operación
+                            </button>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>
