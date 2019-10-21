@@ -11,12 +11,14 @@ import {throwError} from 'rxjs';
 })
 export class AbmComponent implements OnInit {
   socio: any = {};
+  actividad: any = {};
   loading: boolean;
   public nuevo_socio: any;
   
 
   
   socios: any[] = [];
+  actividades: any[] = [];
 
   constructor( private django: DjangoService) { 
     this.loading = true;
@@ -42,6 +44,26 @@ export class AbmComponent implements OnInit {
     this.django.getSocios().subscribe(
       data => {
         this.socios = data["results"];
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getActividad = (actividad) => {
+    this.django.getActividad(actividad.id).subscribe(
+      data => {
+        this.actividad = data;
+        this.loading = false;
+      });
+  }
+
+  getActividades = () => {
+    this.django.getActividades().subscribe(
+      data => {
+        this.actividades = data["results"];
         console.log(data);
       },
       error => {

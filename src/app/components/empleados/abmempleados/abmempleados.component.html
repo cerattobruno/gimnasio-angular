@@ -72,11 +72,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Genero</label>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select class="custom-select" id="inputGroupSelect01"  [(ngModel)]="nuevo_empleado.genero" [ngModelOptions]="{standalone: true}">
                             <option selected>Género</option>
-                            <option value="1">Masculino</option>
-                            <option value="2">Femenino</option>
-                            <option value="3">Otro</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
                         </select>
                     </div>
                 </div>
@@ -88,11 +88,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Teléfono</label>
-                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono" [ngModelOptions]="{standalone: true}">
+                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.tel_fijo" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Teléfono de emergencia</label>
-                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono" [ngModelOptions]="{standalone: true}">
+                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="nuevo_empleado.telefono_emergencia" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Dirección</label>
@@ -136,7 +136,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>Especialidad</label>
-                        <input type="text" class="form-control" placeholder="Especialidad">
+                        <input type="text" class="form-control" placeholder="Especialidad" [(ngModel)]="nuevo_empleado.especialidad" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Sucursal</label>
@@ -148,25 +148,20 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Observaciones</label>
-                        <textarea type="textarea" class="form-control"></textarea>
+                        <textarea type="textarea" class="form-control" placeholder="Observaciones Medicas" [(ngModel)]="nuevo_empleado.observaciones_medicas" [ngModelOptions]="{standalone: true}"></textarea>
                     </div>
                 </div>
 
                 <hr>
-                <div class="form-row">
-                    <div class="form-group text-center col-md-6">
-                        <button (click)="nuevoEmpleado()" type="submit " class="btn btn-info w-100 ">
+                
+                    <div class="form-group text-center ">
+                        <button (click)="nuevoEmpleado()" type="submit" class="btn btn-info w-100 ">
+                            <i class="fa fa-save "></i>
                             Guardar
-                            <i class="material-icons">save</i>
-                      </button>
+                        </button>
                     </div>
-                    <div class="form-group text-center col-md-6">
-                        <button type="submit " class="btn btn-info w-100 ">
-                            Cancelar
-                            <i class="material-icons">cancel</i>
-                      </button>
-                    </div>
-                </div>
+                    
+                
             </form>
         </div>
 

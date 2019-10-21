@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -96,6 +98,8 @@ import { EntradaComponent } from './components/entrada/entrada.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DataTablesModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

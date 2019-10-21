@@ -10,6 +10,7 @@ import {throwError} from 'rxjs';
 })
 export class AbmempleadosComponent implements OnInit {
   empleados: any[] = [];
+  sucursales: any[] = [];
   empleado: any = {};
   public nuevo_empleado: any;
 
@@ -17,6 +18,7 @@ export class AbmempleadosComponent implements OnInit {
 
   constructor(private django: DjangoService) {
     this.getEmpleados();
+    this.getSucursales();
    }
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class AbmempleadosComponent implements OnInit {
 
 
   nuevoEmpleado() {
-    this.django.crearSocio(this.nuevo_empleado).subscribe(
+    this.django.crearEmpleado(this.nuevo_empleado).subscribe(
        data => {
          this.getEmpleados();
          console.log(data);
@@ -70,5 +72,17 @@ export class AbmempleadosComponent implements OnInit {
         return throwError(error);
       }
    );
+  }
+
+  getSucursales = () => {
+    this.django.getSucursales().subscribe(
+      data => {
+        this.sucursales = data["results"];
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
