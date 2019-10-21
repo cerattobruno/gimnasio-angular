@@ -1,0 +1,49 @@
+<div class="col mt-4">
+    <div class="row justify-content-center scroll">
+        <table class="table table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Sucursal</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let act of actividades; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{act.nombre}}</td>
+                    <td>${{act.precio}}</td>
+                    <td>{{act.sucursal}}</td>
+                    <!--
+                    <td>
+                        <div *ngFor="let d of dias; let i = index">
+                            {{ d }}: {{ act.horario[i] }}
+                        </div>
+                    </td>
+                    -->
+                    <td>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" [routerLink]="['/actividades', i]" routerLinkActive="router-link-active" class="btn btn-block btn-warning btn-sm">
+                                <!-- Editar -->
+                                <i class="material-icons">mode_edit</i>
+                              </button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-block btn-danger btn-sm">
+                                <!-- Eliminar -->
+                                <i class="material-icons md-11">remove_circle</i>
+                              </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

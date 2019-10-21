@@ -1,11 +1,18 @@
-<br>
-<hr>
 <div class="row">
     <div class="col-12">
-        <div>
-            <h5>Datos consultorio </h5>
-            <hr>
+        <div class="row">
+            <div class="col-md-10">
+                <h5>Datos nuevo consultorio </h5>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" [routerLink]="['/centromedico/listadoconsul']" class="float-right btn btn-danger w-10 ">
+                    <!-- <i class="material-icons">cancel</i> -->
+                    <i class="fa fa-arrow-left"></i>
+                </button>
+            </div>
+
         </div>
+        <hr>
         <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
             <div class="form-row">
                 <div class="form-group col-md-4">

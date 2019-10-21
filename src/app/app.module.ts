@@ -48,6 +48,10 @@ import { ModificarempleadoComponent } from './components/empleados/modificarempl
 import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 import { UsuariosComponent } from './components/administracion/usuarios/usuarios.component';
 import { EntradaComponent } from './components/entrada/entrada.component';
+import { EditaractividadComponent } from './components/actividades/editaractividad/editaractividad.component';
+import { ListadoactComponent } from './components/actividades/listadoact/listadoact.component';
+import { ListadoconsulComponent } from './components/centromedico/listadoconsul/listadoconsul.component';
+import { ListadoprofesionalesComponent } from './components/centromedico/listadoprofesionales/listadoprofesionales.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +94,11 @@ import { EntradaComponent } from './components/entrada/entrada.component';
     ModificarempleadoComponent,
     ListadoproveedoresComponent,
     UsuariosComponent,
-    EntradaComponent
+    EntradaComponent,
+    EditaractividadComponent,
+    ListadoactComponent,
+    ListadoconsulComponent,
+    ListadoprofesionalesComponent
   ],
   imports: [
     BrowserModule,
