@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Genero</label>
-                        <select class="custom-select" id="inputGroupSelect01"  [(ngModel)]="nuevo_empleado.genero" [ngModelOptions]="{standalone: true}">
+                        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="nuevo_empleado.genero" [ngModelOptions]="{standalone: true}">
                             <option selected>Género</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -142,8 +142,7 @@
                         <label>Sucursal</label>
                         <select class="custom-select" id="inputGroupSelect01">
                             <option selected>Elija una sucursal</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
+                            <option *ngFor="let suc of sucursales; let i=index" value="1"> {{ suc.nombre }} </option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -153,15 +152,15 @@
                 </div>
 
                 <hr>
-                
-                    <div class="form-group text-center ">
-                        <button (click)="nuevoEmpleado()" type="submit" class="btn btn-info w-100 ">
+
+                <div class="form-group text-center ">
+                    <button (click)="nuevoEmpleado()" type="submit" class="btn btn-info w-100 ">
                             <i class="fa fa-save "></i>
                             Guardar
                         </button>
-                    </div>
-                    
-                
+                </div>
+
+
             </form>
         </div>
 
