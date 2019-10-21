@@ -36,6 +36,10 @@ import { ModificarempleadoComponent } from './components/empleados/modificarempl
 import { ListadoproveedoresComponent } from './components/administracion/listadoproveedores/listadoproveedores.component';
 import { UsuariosComponent } from './components/administracion/usuarios/usuarios.component';
 import { EntradaComponent } from './components/entrada/entrada.component';
+import { EditaractividadComponent } from './components/actividades/editaractividad/editaractividad.component';
+import { ListadoactComponent } from './components/actividades/listadoact/listadoact.component';
+import { ListadoconsulComponent } from './components/centromedico/listadoconsul/listadoconsul.component';
+import { ListadoprofesionalesComponent } from './components/centromedico/listadoprofesionales/listadoprofesionales.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -72,8 +76,14 @@ const routes: Routes = [
       {path: 'usuarios', component: UsuariosComponent}
     ]
   },
-  {path: 'actividades', component: ActividadesComponent},
-  {path: 'actividades/:id', component: AbmactividadesComponent},
+  {path: 'actividades', component: ActividadesComponent,
+    children: [
+      {path: '', pathMatch: 'full', redirectTo: 'listadoact'},
+      {path: 'listadoact', component: ListadoactComponent},
+      {path: 'abmactividades', component: AbmactividadesComponent}
+    ]
+  },
+  {path: 'actividades/:id', component: EditaractividadComponent},
 
   {path: 'gestionmarketing', component: GestionmarketingComponent,
     children: [
@@ -83,8 +93,10 @@ const routes: Routes = [
   },
   {path: 'centromedico', component: CentromedicoComponent,
     children: [
+      {path: 'listadoconsul', component: ListadoconsulComponent},
+      {path: 'listadoprofesionales', component: ListadoprofesionalesComponent},
       {path: 'abmconsultorios', component: AbmconsultoriosComponent},
-      {path: 'ambprofesionales', component: AbmprofesionalesComponent},
+      {path: 'abmprofesionales', component: AbmprofesionalesComponent},
       {path: 'busquedapaciente', component: BusquedapacienteComponent}
     ]
   },

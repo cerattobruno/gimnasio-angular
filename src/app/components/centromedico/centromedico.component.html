@@ -1,106 +1,10 @@
 <div class=" row justify-content-center mt-3">
     <div class="btn-group mt-2" role="group" aria-label="Basic example">
-        <button type="button" name="consultorio" [routerLinkActive]="['active']" [routerLink]="['abmconsultorios']" class="btn btn-outline-info"> <i class="fa fa-plus"></i> Cargar Consultorio</button>
-        <button type="button" name="profesional" [routerLinkActive]="['active']" [routerLink]="['ambprofesionales']" class="btn btn-outline-info"><i class="fa fa-plus"></i> Cargar Profesional </button>
+        <button type="button" name="consultorio" [routerLinkActive]="['active']" [routerLink]="['listadoconsul']" class="btn btn-outline-info">Consultorios</button>
+        <button type="button" name="profesional" [routerLinkActive]="['active']" [routerLink]="['listadoprofesionales']" class="btn btn-outline-info">Profesionales </button>
         <button type="button" name="busqueda" [routerLinkActive]="['active']" [routerLink]="['busquedapaciente']" class="btn btn-outline-info"> <i class="fa fa-search"></i> Busqueda paciente</button>
     </div>
 </div>
 <hr>
-<div>
-    <h5>
-        Consultorios
-    </h5>
-</div>
-<div class="col scroll">
-    <div class="row justify-content-center ">
-        <table class="table table-sm table-hover">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Horarios</th>
-                    <th scope="col">Sucursal</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <tr *ngFor="let consultorio of consultorios; let i = index">
-                    <th scope="row">{{consultorio.idConsultorio}}</th>
-                    <td>{{consultorio.nombre}}</td>
-                    <td>{{consultorio.idHorario}}</td>
-                    <td>{{consultorio.sucursal}}</td>
-                    <td>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-warning btn-sm">
-                                  <!-- Editar -->
-                                  <i class="material-icons">create</i>
-                                </button>
-                            </div>
-
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-danger btn-sm">
-                                  <!-- Eliminar -->
-                                  <i class="material-icons">clear</i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<br>
-<br>
-<div>
-    <h5>
-        Profesionales
-    </h5>
-</div>
-<div class="col scroll">
-    <div class="row justify-content-center ">
-        <table class="table table-sm table-hover">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Profesion</th>
-                    <th scope="col">Matricula</th>
-                    <th scope="col">Alquiler hasta</th>
-                    <th scope="col">Consultorio</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <tr *ngFor="let prof of profesionales; let i = index">
-                    <th scope="row">{{prof.idProfesional}}</th>
-                    <td>{{prof.nombre}}</td>
-                    <td>{{prof.profesion}}</td>
-                    <td>{{prof.matricula}}</td>
-                    <td>{{prof.fechaFin}}</td>
-                    <td>{{prof.idConsultorio}}</td>
-                    <td>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-warning btn-sm">
-                                      <!-- Editar -->
-                                      <i class="material-icons">create</i>
-                                    </button>
-                            </div>
-
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-danger btn-sm">
-                                      <!-- Eliminar -->
-                                      <i class="material-icons">clear</i>
-                                    </button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 
 <router-outlet></router-outlet>
