@@ -38,10 +38,7 @@
             <span class="letras ">Bienvenido {{user}}</span>
         <button class="btn btn-sm btn-danger m-auto boton " (click)="this.djangoService.logout()" *ngIf="this.djangoService.user_token">
                 
-                <!--
-                <i class="fa fa-sign-out-alt"></i>
-                -->
-                Salir
+            <i class="fa fa-sign-out" style="font-size:20px"></i>
             </button>
         </span>
 

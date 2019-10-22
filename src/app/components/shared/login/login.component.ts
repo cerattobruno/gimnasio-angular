@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         // console.log('error', error.message);
-        this.errormessage = error.message;
+        this.errormessage = "Credenciales Incorrectas";
       }
     );
   }
