@@ -3,9 +3,14 @@
     padding: 5px;
 }
 
+
+/*
 .boton {
-    border-radius: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    align-content: center;
 }
+*/
 
 .titulo {
     /*font-family: 'Lobster', cursive;*/

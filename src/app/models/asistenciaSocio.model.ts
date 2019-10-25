@@ -6,5 +6,4 @@ export class AsistenciaSocioModel {
      public fecha: string,
      public idSucursal: string,
     ) {}
- 
- }
+}

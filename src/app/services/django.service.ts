@@ -302,4 +302,13 @@ export class DjangoService {
       return this.http.delete(this.baseurl + '/horarios/' + id + '/',
       {headers: this.httpHeaders});
     }
+
+    // ASISTENCIA SOCIOS
+
+    getAsistenciaSocios(): Observable<any> {
+      return this.http.get(this.baseurl + '/asistenciasocios/',
+      {headers: this.httpHeaders});
+    }
+
+
   }

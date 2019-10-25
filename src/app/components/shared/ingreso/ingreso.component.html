@@ -1,11 +1,27 @@
 <div *ngIf="this.djangoService.user_token" class="col borde">
-    <div class="row justify-content-center  mt-2">
-        <div class="col-9">
-            <div class="card m-auto foto">
-                <img src="../../../../assets/usser.png" class="card-img-top" alt="Foto usuario">
-                <div class="card-body">
-                    <p class="card-text">Nombre: Bruno Ceratto <br> Actividad: Musculacion <br> Estado: Al día</p>
+    <div class="row justify-content-center mt-2 ">
+        <div class="col-12">
+            <div class="card m-auto foto" [ngClass]="{'input-missing' : !socio.saldo}">
+
+                <div class="row no-gutters ">
+                    <div class="col-md-12 ">
+                        <img src="../../../../assets/usser.png" class="card-img-top img" alt="Foto usuario">
+                    </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush ">
+                                <li class="list-group-item" [ngClass]="{'input-missing' : !socio.saldo}">{{ socio.nombre }} {{ socio.apellido }}</li>
+                                <li class="list-group-item" [ngClass]="{'input-missing' : !socio.saldo}">{{ actividad.nombre }}</li>
+                                <li *ngIf="socio.saldo" class="list-group-item">Al dia</li>
+                                <li *ngIf="!socio.saldo" class="list-group-item" [ngClass]="{'input-missing' : !socio.saldo}">Vencido!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

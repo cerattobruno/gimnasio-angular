@@ -17,9 +17,10 @@ export class ListaComponent implements AfterViewInit, OnInit {
   loading: boolean;
   socios: any[] = [];
 
-  
 
-  constructor(private django: DjangoService, private renderer: Renderer, private router: Router) { 
+
+  // tslint:disable-next-line: deprecation
+  constructor(private django: DjangoService, private renderer: Renderer, private router: Router) {
     this.loading = true;
     this.getSocios();
   }

@@ -7,12 +7,23 @@
 
 .foto {
     border-radius: 2rem !important;
-    max-height: 400px;
-    max-width: 300px;
     margin: 0 auto;
     overflow: hidden;
+    height: 440px;
+    width: 300px;
 }
 
 .borde {
     border-radius: 2rem;
+}
+
+.img {
+    width: 300px;
+    height: 270px;
+}
+
+.input-missing {
+    /* border: 2px solid rgb(197, 40, 40); */
+    background-color: rgb(197, 40, 40);
+    color: whitesmoke;
 }
