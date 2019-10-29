@@ -1,7 +1,8 @@
 import { Component, OnInit, Renderer, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {  DjangoService } from 'src/app/services/django.service';
-import {MatTableDataSource} from '@angular/material/table';
+import {throwError} from 'rxjs';
+
 
 @Component({
   selector: 'app-lista',
@@ -27,20 +28,29 @@ export class ListaComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      ajax: 'data/data.json',
+      ajax: {
+        url: "http://127.0.0.1:8000/socios/",
+        dataSrc: "results",
+      },
       columns: [{
         title: 'ID',
         data: 'id'
       }, {
-        title: 'First name',
-        data: 'firstName'
+        title: 'Nombre',
+        data: 'nombre'
       }, {
-        title: 'Last name',
-        data: 'lastName'
+        title: 'Apellido',
+        data: 'apellido'
       }, {
         title: 'Action',
         render: function (data: any, type: any, full: any) {
-          return 'View';
+          console.log(data);
+          return '<button class="btn btn-warning" view-socios-id= "' + data + '">' +
+          '   <i class="fa fa-edit" view-socios-id= "' + data + '"></i>' +
+          '</button>' +
+          '<button class="btn btn-danger">' +
+          '   <i class="fa fa-trash-o"></i>' +
+          '</button>';
         }
       }]
     };
@@ -48,8 +58,8 @@ export class ListaComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.renderer.listenGlobal('document', 'click', (event) => {
-      if (event.target.hasAttribute("view-person-id")) {
-        this.router.navigate(["/person/" + event.target.getAttribute("view-person-id")]);
+      if (event.target.hasAttribute("view-socios-id")) {
+        this.router.navigate(["/socios/" + event.target.getAttribute("view-socios-id")]);
       }
     });
   }
@@ -73,6 +83,20 @@ export class ListaComponent implements AfterViewInit, OnInit {
         console.log(error);
       }
     );
+  }
+
+  bajaSocio = (socioId) => {
+    this.django.eliminarSocio(socioId).subscribe(
+      data => {
+        this.getSocios();
+        console.log(data);
+        return true;
+      },
+      error => {
+        console.error('Error deleting!');
+        return throwError(error);
+      }
+   );
   }
 
 }

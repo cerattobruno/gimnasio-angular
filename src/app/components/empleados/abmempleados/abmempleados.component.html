@@ -56,7 +56,7 @@
                 </div>
             </div>
             <br>
-            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>Nombre</label>
@@ -118,13 +118,9 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Actividad</label>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="nuevo_empleado.actividad" [ngModelOptions]="{standalone: true}">
                             <option selected>Elija una actividad</option>
-                            <option value="1">Musculación</option>
-                            <option value="2">Boxeo</option>
-                            <option value="3">Funcional</option>
-                            <option value="1">Crossfit</option>
-                            <option value="2">Pilates</option>
+                            <option *ngFor="let act of actividades" value="{{act.id}}" > {{ act.nombre }} </option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -142,7 +138,7 @@
                         <label>Sucursal</label>
                         <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="nuevo_empleado.sucursal" [ngModelOptions]="{standalone: true}">
                             <option selected>Elija una sucursal</option>
-                            <option *ngFor="let suc of sucursales; let i=index" value="1" > {{ suc.nombre }} </option>
+                            <option *ngFor="let suc of sucursales" value="{{suc.id}}" > {{ suc.nombre }} </option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">

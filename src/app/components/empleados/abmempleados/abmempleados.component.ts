@@ -11,18 +11,21 @@ import {throwError} from 'rxjs';
 export class AbmempleadosComponent implements OnInit {
   empleados: any[] = [];
   sucursales: any[] = [];
+  actividades: any[] = [];
   empleado: any = {};
-  public nuevo_empleado: any;
+  public nuevo_empleado: EmpleadoModel;
 
 
 
   constructor(private django: DjangoService) {
     this.getEmpleados();
     this.getSucursales();
+    this.getActividades();
    }
 
   ngOnInit() {
-    this.nuevo_empleado = {};
+    this.nuevo_empleado = new EmpleadoModel("", "", "", 0, "", "", "", "", "", "", new Date().toISOString(), new Date().toISOString(), 0, "", "",
+                                            0);
   }
 
   getEmpleado = (empleado) => {
@@ -78,6 +81,18 @@ export class AbmempleadosComponent implements OnInit {
     this.django.getSucursales().subscribe(
       data => {
         this.sucursales = data["results"];
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getActividades = () => {
+    this.django.getActividades().subscribe(
+      data => {
+        this.actividades = data["results"];
         console.log(data);
       },
       error => {
