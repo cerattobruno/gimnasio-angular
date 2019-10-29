@@ -14,4 +14,8 @@ export class EntradaComponent implements OnInit {
   ngOnInit() {
   }
 
+  buscar(documento: number) {
+
+  }
+
 }

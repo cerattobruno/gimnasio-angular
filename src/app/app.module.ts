@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { MatSliderModule } from '@angular/material/slider';
+import 'hammerjs';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

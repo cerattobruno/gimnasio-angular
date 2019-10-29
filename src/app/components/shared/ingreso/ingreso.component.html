@@ -34,35 +34,20 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Cant.</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Hora</th>
+                    <th scope="col">Actividad</th>
+                    <th scope="col">Fecha y Hora</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bruno</td>
-                    <td>Ceratto</td>
-                    <td>10/08/2019</td>
-                    <td>09:30</td>
+                <tr *ngFor="let d of asistencia; let i = index">
+                    <th scope="row">{{ d.id }}</th>
+                    <td> Nombre</td>
+                    <td>Actividad</td>
+                    <td> {{ d.fecha_ingreso | date:'M/d/yy, h:mm a' }}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mauro</td>
-                    <td>Blacona</td>
-                    <td>10/08/2019</td>
-                    <td>10:45</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Lucas</td>
-                    <td>Ceratto</td>
-                    <td>10/08/2019</td>
-                    <td>11:00</td>
-                </tr>
+
             </tbody>
         </table>
     </div>
