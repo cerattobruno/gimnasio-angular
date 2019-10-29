@@ -105,17 +105,29 @@
                         <label>Correo</label>
                         <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_empleado.email" [ngModelOptions]="{standalone: true}">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label>Foto</label>
                         <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
                     </div>
+                    -->
+                    <div class="form-group col-md-6">
+                        <label>Foto</label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02" [(ngModel)]="nuevo_empleado.foto" [ngModelOptions]="{standalone: true}">
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Foto</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-6">
                         <label>Fecha inicio</label>
                         <input type="date" class="form-control" placeholder="Fecha inicio" [(ngModel)]="nuevo_empleado.fecha_inicio" [ngModelOptions]="{standalone: true}">
                     </div>
+                    <!--
                     <div class="form-group col-md-3">
                         <label>Actividad</label>
                         <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="nuevo_empleado.actividad" [ngModelOptions]="{standalone: true}">
@@ -123,9 +135,21 @@
                             <option *ngFor="let act of actividades" value="{{act.id}}" > {{ act.nombre }} </option>
                         </select>
                     </div>
+                    -->
+                    <!--
                     <div class="form-group col-md-6">
                         <label>Ficha médica</label>
                         <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    -->
+                    <div class="form-group col-md-6">
+                        <label>Ficha médica</label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Ficha médica</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -144,6 +168,46 @@
                     <div class="form-group col-md-6">
                         <label>Observaciones</label>
                         <textarea type="textarea" class="form-control" placeholder="Observaciones Medicas" [(ngModel)]="nuevo_empleado.observaciones_medicas" [ngModelOptions]="{standalone: true}"></textarea>
+                    </div>
+                </div>
+
+                <!--
+                <div class="form-row">
+                    <div class="form-group col-md-1 text-center">
+                        <button type="submit" [routerLink]="['/empleados']" class="text-center btn btn-success w-10 ">
+                             <i class="material-icons">cancel</i> 
+                            <i class="fa fa-plus-circle"></i>    
+                        </button>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Actividad</label>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Elija una actividad</option>
+                            <option value="1">Musculación</option>
+                            <option value="2">Boxeo</option>
+                            <option value="3">Funcional</option>
+                            <option value="1">Crossfit</option>
+                            <option value="2">Pilates</option>
+                        </select>
+                    </div>
+                </div>
+                -->
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Actividad</label>
+                        <div class="input-group">
+                            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                            <option selected>Elija un actividad</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button">
+                                    <i class="fa fa-plus-circle"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
