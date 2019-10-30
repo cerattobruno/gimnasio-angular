@@ -15,6 +15,8 @@ export class AbmempleadosComponent implements OnInit {
   empleado: any = {};
   public nuevo_empleado: EmpleadoModel;
 
+  prueba: number;
+
 
 
   constructor(private django: DjangoService) {
@@ -24,8 +26,8 @@ export class AbmempleadosComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.nuevo_empleado = new EmpleadoModel("", "", "", 0, "", "", "", "", "", "", new Date().toISOString(), new Date().toISOString(), 0, "", "",
-                                            0);
+    this.nuevo_empleado = new EmpleadoModel("", "", "", 0, "", "", "", "", new Date().toISOString(), new Date().toISOString(), 0, "", "",
+                                            []);
   }
 
   getEmpleado = (empleado) => {
@@ -49,6 +51,7 @@ export class AbmempleadosComponent implements OnInit {
 
 
   nuevoEmpleado() {
+    this.nuevo_empleado.actividades.push(this.prueba);
     this.django.crearEmpleado(this.nuevo_empleado).subscribe(
        data => {
          this.getEmpleados();

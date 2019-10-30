@@ -8,13 +8,13 @@ export class EmpleadoModel {
      public telefono: string,
      public telefono_emergencia: string,
      public domicilio: string,
-     public foto: string,
-     public ficha_medica: string,
+     // public foto: string,
+     // public ficha_medica: string,
      public fecha_nacimiento: string,
      public fecha_inicio: string,
      public sucursal: number,
      public especialidad: string,
      public observaciones_medicas: string,
-     public actividades: number,
+     public actividades: Array<number>,
     ) {}
  }
