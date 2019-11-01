@@ -2,12 +2,13 @@
     border: 1px;
     border-color: black;
     max-width: 50%;
+    height: 300px;
     /* background-color: rgba(221, 217, 217, 0.534); */
-    /* border-radius: 2rem; */
-    overflow: hidden;
+    border-radius: 2rem;
+    /* overflow: hidden; */
     margin-top: 15%;
     margin-left: 25%;
-    ;
+    /* padding-top: 5px; */
 }
 
 .boton {
@@ -38,4 +39,16 @@
     border: none!important;
     margin-left: -35px!important;
     z-index: 100;
+}
+
+.input-missing {
+    border: 5px outset rgb(197, 40, 40);
+    background-color: rgba(197, 40, 40, 0.94);
+    color: whitesmoke;
+}
+
+.input-succes {
+    border: 5px outset rgb(36, 163, 104);
+    background-color: rgba(36, 163, 104, 0.74);
+    color: whitesmoke;
 }
