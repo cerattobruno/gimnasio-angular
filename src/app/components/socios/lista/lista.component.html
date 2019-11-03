@@ -1,1 +1,32 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover"></table>
+
+      <div class="example-container mat-elevation-z8">
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+            </mat-form-field>
+        <mat-table [dataSource]="dataSource" matSort>
+            
+          <ng-container matColumnDef="Nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let socios"> {{socios.nombre}} </mat-cell>
+          </ng-container>
+      
+            
+          <ng-container matColumnDef="Apellido">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+            <mat-cell *matCellDef="let socios"> {{socios.apellido}} </mat-cell>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="Dni">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Dni </mat-header-cell>
+            <mat-cell *matCellDef="let socios"> {{socios.dni}} </mat-cell>
+          </ng-container>
+      
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
+          <mat-row *matRowDef="let socios; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" [pageSize]="25" [showFirstLastButtons]="true"></mat-paginator>
+      </div>

@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { DataTablesModule } from 'angular-datatables';
 import { MatSliderModule } from '@angular/material/slider';
+import {DataTableModule} from "angular-6-datatable";
+
+import { MatInputModule, MatPaginatorModule, MatTableModule,
+  MatSortModule, MatPaginatorIntl } from '@angular/material';
 
 
 
@@ -108,8 +111,12 @@ import { ListadoprofesionalesComponent } from './components/centromedico/listado
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DataTablesModule,
     MatSliderModule,
+    DataTableModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { Router } from '@angular/router';
+import {SocioModel} from 'src/app/models/socio.model'
 
 
 @Injectable({
@@ -91,8 +92,8 @@ export class DjangoService {
 
 
   // SOCIOS
-    getSocios(): Observable<any> {
-      return this.http.get(this.baseurl + '/socios/',
+    getSocios(): Observable<SocioModel[]> {
+      return this.http.get<SocioModel[]>(this.baseurl + '/socios/',
       {headers: this.httpHeaders});
     }
 
