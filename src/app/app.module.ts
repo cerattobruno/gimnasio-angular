@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import {DataTableModule} from "angular-6-datatable";
@@ -57,6 +57,11 @@ import { EditaractividadComponent } from './components/actividades/editaractivid
 import { ListadoactComponent } from './components/actividades/listadoact/listadoact.component';
 import { ListadoconsulComponent } from './components/centromedico/listadoconsul/listadoconsul.component';
 import { ListadoprofesionalesComponent } from './components/centromedico/listadoprofesionales/listadoprofesionales.component';
+
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
+
 
 @NgModule({
   declarations: [
@@ -118,7 +123,7 @@ import { ListadoprofesionalesComponent } from './components/centromedico/listado
     MatSortModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

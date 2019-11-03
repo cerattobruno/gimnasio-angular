@@ -1,19 +1,11 @@
-<div class="container fondo">
-    <div class=" col  container login  ">
-        <div class="row">
+<div class="container">
+    <div class=" col  container login" [ngClass]="{'input-missing' : !dejarPasar, 'input-succes' : !inicio}">
+        <div class="row mt-3">
             <div class="col-md-9 text-right">
                 <h3 class="m-auto">INGRESO AL GYM</h3>
             </div>
 
             <div class="col-md-3 text-right">
-                <!--
-                <div class="btn-group-toggle boton" data-toggle="buttons">
-                    <label class="btn btn-sm btn-light  ">
-                        <input type="checkbox" class="custom-control-input" id="llave"> 
-                        <i class="fa fa-key"></i>
-                    </label>
-                </div>
-                -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="customCheck1" ng-init="customCheck1 = false">
                     <label class="custom-control-label" for="customCheck1">
@@ -21,16 +13,18 @@
                     </label>
                 </div>
             </div>
-
-
-
         </div>
-        <br>
+        <hr>
+
+        <div class="row m-auto">
+            <label> {{hora | date:'EEEE, d MMMM, y -  hh:mm a' | uppercase}} </label>
+        </div>
+        <hr>
 
         <form class="form">
             <div class="form-group input-group">
 
-                <input type="text" class="form-control boton rounded" #username name="username" placeholder="Usuario">
+                <input type="text" class="form-control boton rounded" #username name="username" placeholder="Usuario" [(ngModel)]="dniSocio">
                 <div class="input-group-append">
                     <span class="input-group-text">
                           <i class="fa fa-user"></i>                                        
@@ -39,23 +33,19 @@
             </div>
 
             <div *ngIf="customCheck1" class="form-group input-group ">
-                <!---->
                 <div class="btn-group btn-group-sm btn-block " role="group" aria-label="...">
                     <button type="button" class="btn btn-outline-success boton">Entrada</button>
                     <button type="button" class="btn btn-outline-danger boton">Salida</button>
                 </div>
+            </div>
 
-                <!--
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                    <label class="custom-control-label" for="customSwitch1">Salida/Entrada</label>
-                </div>
-                -->
+            <div *ngIf="!dejarPasar">
+                <label> {{ messagecuota }} </label>
             </div>
 
 
             <div *ngIf="!customCheck1" class="form-group input-group">
-                <button (click)="buscar(username)" type="submit" class="btn btn-info m-auto w-50 boton " id="login-button">Ingresar</button>
+                <button (click)="controlar()" type="submit" class="btn btn-info m-auto w-50 boton " id="login-button">Ingresar</button>
             </div>
 
             <div *ngIf="customCheck1" class="form-group input-group">
@@ -69,5 +59,6 @@
             </div>
 
         </form>
+
     </div>
 </div>

@@ -64,8 +64,13 @@ export class DjangoService {
     }
   }
 
+    getUser(id): Observable<any> {
+      return this.http.get(this.baseurl + '/users/' + id + '/',
+      {headers: this.httpHeaders});
+    }
 
-  //EMPLEADOS
+
+  // EMPLEADOS
     getEmpleados(): Observable<any> {
       return this.http.get(this.baseurl + '/empleados/',
       {headers: this.httpHeaders});
@@ -309,6 +314,15 @@ export class DjangoService {
     getAsistenciaSocios(): Observable<any> {
       return this.http.get(this.baseurl + '/asistenciasocios/',
       {headers: this.httpHeaders});
+    }
+
+    crearAsisteciaSocio(post) {
+      this.httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        })
+      };
+      return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), this.httpOptions);
     }
 
 
