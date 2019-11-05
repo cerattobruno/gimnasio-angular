@@ -35,10 +35,10 @@ export class ListaComponent implements OnInit {
         x => {  
         //this.dataSource.data["results"] = x;
         this.dataSource = new MatTableDataSource();  
-        this.dataSource.data['results'] = x;  
+        this.dataSource.data = x['results'];  
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        console.log(this.dataSource.data['results']);
+        console.log(this.dataSource.data);
       },  
       error => {  
         console.log('There was an error while retrieving Socios!' + error);
