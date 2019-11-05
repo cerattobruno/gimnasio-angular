@@ -14,7 +14,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 export class ListaComponent implements OnInit {
   
-  displayedColumns = ['Nombre', 'Apellido', 'Dni'];
+  displayedColumns = ['nombre', 'apellido', 'dni'];
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -35,10 +35,10 @@ export class ListaComponent implements OnInit {
         x => {  
         //this.dataSource.data["results"] = x;
         this.dataSource = new MatTableDataSource();  
-        this.dataSource.data["results"] = x;  
+        this.dataSource.data['results'] = x;  
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        console.log(this.dataSource.data["results"]);
+        console.log(this.dataSource.data['results']);
       },  
       error => {  
         console.log('There was an error while retrieving Socios!' + error);
