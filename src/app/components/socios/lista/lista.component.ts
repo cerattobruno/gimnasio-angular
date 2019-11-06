@@ -13,37 +13,36 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 })
 
 export class ListaComponent implements OnInit {
-  
-  displayedColumns = ['nombre', 'apellido', 'dni'];
+
+  displayedColumns = ['nombre', 'apellido', 'dni', 'acciones'];
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  //socio: any = {};
-  //socios: any[] = [];
+  // socio: any = {};
+  // socios: any[] = [];
 
-  
+
   constructor(private django: DjangoService) { }
-  
 
   ngOnInit() {
-    this.renderDataTable(); 
+    this.renderDataTable();
   }
 
-  renderDataTable() {  
-    this.django.getSocios()  
-      .subscribe(  
-        x => {  
-        //this.dataSource.data["results"] = x;
-        this.dataSource = new MatTableDataSource();  
-        this.dataSource.data = x['results'];  
+  renderDataTable() {
+    this.django.getSocios()
+      .subscribe(
+        x => {
+        // this.dataSource.data["results"] = x;
+        this.dataSource = new MatTableDataSource();
+        this.dataSource.data = x['results'];
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        console.log(this.dataSource.data);
-      },  
-      error => {  
+        // console.log(this.dataSource.data);
+      },
+      error => {
         console.log('There was an error while retrieving Socios!' + error);
-      });  
-    } 
+      });
+    }
 
 
  applyFilter(filterValue: string) {

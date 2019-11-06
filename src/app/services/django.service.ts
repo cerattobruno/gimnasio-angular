@@ -325,5 +325,11 @@ export class DjangoService {
       return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), this.httpOptions);
     }
 
+    // REGISTRO DE CUOTAS
+
+    getCuotas(): Observable<any> {
+      return this.http.get(this.baseurl + '/cuotas/',
+      {headers: this.httpHeaders});
+    }
 
   }

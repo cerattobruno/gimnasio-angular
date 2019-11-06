@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
-import {DataTableModule} from "angular-6-datatable";
+import {DataTableModule} from 'angular-6-datatable';
 
 import { MatInputModule, MatPaginatorModule, MatTableModule,
   MatSortModule, MatPaginatorIntl } from '@angular/material';

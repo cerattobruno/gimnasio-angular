@@ -1,10 +1,11 @@
+<br>
 <div class="col">
 
     <div class="row">
         <div class="col-12">
             <div class="row">
                 <div class="col-md-10">
-                    <h5 class="float-left">Datos socio: <small>Nombre Socio</small></h5>
+                    <h5 class="float-left">Datos socio: <small>{{socio.nombre}}, {{socio.apellido}}</small></h5>
                 </div>
                 <div class="col-md-2">
                     <button type="submit" [routerLink]="['/socios/lista']" class="float-right btn btn-danger w-10 ">
@@ -14,65 +15,65 @@
                             </button>
                 </div>
             </div>
-            <br>
+            <hr>
             <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevo_socio.nombre" name="nombre">
+                        <input type="text" class="form-control" placeholder="{{socio.nombre}}" value="{{socio.nombre}}" name="nombre">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="nuevo_socio.apellido" name="apellido">
+                        <input type="text" class="form-control" placeholder="{{socio.apellido}}" value="{{socio.apellido}}" name="apellido">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Dni</label>
-                        <input type="text" class="form-control" placeholder="Dni" [(ngModel)]="nuevo_socio.dni" name="dni">
+                        <input type="text" class="form-control" placeholder="{{socio.dni}}" value="{{socio.dni}}" name="dni">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Fecha de nacimiento</label>
-                        <input type="date" class="form-control" placeholder="Fecha de nacimiento" [(ngModel)]="nuevo_socio.fecha_nacimiento" name="fecha_nacimiento">
+                        <input type="date" class="form-control" placeholder="{{socio.fecha_nacimiento}}" value="{{socio.fecha_nacimiento}}" name="fecha_nacimiento">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Fecha de inicio</label>
-                        <input type="date" class="form-control" placeholder="Fecha de inicio" [(ngModel)]="nuevo_socio.fecha_inicio" name="fecha_inicio">
+                        <input type="date" class="form-control" placeholder="{{socio.fecha_inicio}}" value="{{socio.fecha_inicio}}" name="fecha_inicio">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Correo</label>
-                        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="nuevo_socio.email" name="email">
+                        <input type="email" class="form-control" placeholder="{{socio.email}}" value="{{socio.email}}" name="email">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Foto</label>
-                        <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                        <input type="file" class="form-control-file">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Telefono Celular</label>
-                        <input type="tel" class="form-control" placeholder="Telefono Celular" [(ngModel)]="nuevo_socio.celular" name="celular">
+                        <input type="tel" class="form-control" placeholder="{{socio.telefono}}" value="{{socio.telefono}}" name="celular">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Telefono de Emergencia</label>
-                        <input type="tel" class="form-control" placeholder="Telefono de Emergencia" [(ngModel)]="nuevo_socio.telefono_emergencia" name="tel_emergencia">
+                        <input type="tel" class="form-control" placeholder="{{socio.telefono_emergencia}}" value="{{socio.telefono_emergencia}}" name="tel_emergencia">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Domicilio</label>
-                        <input type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="nuevo_socio.domicilio" name="domicilio">
+                        <input type="text" class="form-control" placeholder="{{socio.domicilio}}" value="{{socio.domicilio}}" name="domicilio">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Saldo</label>
-                        <input type="text" class="form-control" placeholder="Saldo" [(ngModel)]="nuevo_socio.saldo" name="saldo">
+                        <input type="text" class="form-control" placeholder="{{socio.saldo}}" value="{{socio.saldo}}" name="saldo">
                     </div>
                     <div class="form-group col-md-4">
                         <label>Observaciones Medicas</label>
-                        <input type="text" class="form-control" placeholder="Observaciones Medicas" [(ngModel)]="nuevo_socio.observaciones_medicas" name="observaciones_medicas">
+                        <input type="text" class="form-control" placeholder="{{socio.observaciones_medicas}}" value="{{socio.observaciones_medicas}}" name="observaciones_medicas">
                     </div>
                 </div>
 
@@ -96,7 +97,7 @@
 
                     <div class="form-group col-md-6">
                         <label>Ficha médica</label>
-                        <input type="file" class="form-control-file" [(ngModel)]="nuevo_empleado.ficha_medica" [ngModelOptions]="{standalone: true}">
+                        <input type="file" class="form-control-file">
                     </div>
 
 

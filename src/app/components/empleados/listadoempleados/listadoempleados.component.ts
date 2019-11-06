@@ -11,12 +11,31 @@ export class ListadoempleadosComponent implements OnInit {
 
   empleados: any[] = [];
 
+  artistas: any[] = [];
+  loading: boolean;
+
   constructor(private django: DjangoService) {
     this.getEmpleados();
    }
 
   ngOnInit() {
   }
+
+  /*
+  buscar( termino: string ) {
+    this.loading = true;
+    console.log(termino);
+
+    /*
+    this.django.getEmpleado( termino )
+      .subscribe( (data: any) => {
+        // console.log(data);
+        this.artistas = data;
+        this.loading = false;
+      });
+  }
+
+  */
 
   getEmpleados = () => {
     this.django.getEmpleados().subscribe(

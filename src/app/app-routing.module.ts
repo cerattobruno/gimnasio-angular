@@ -55,6 +55,9 @@ const routes: Routes = [
     ]
   },
   {path: 'socios/:id', component: ModificarComponent},
+  {path: 'socios/cobrar/:id', component: CobrarComponent},
+  {path: 'socios/reservar/:id', component: ReservarComponent},
+  {path: 'socios/rutinas/:id', component: RutinasComponent},
   {path: 'empleados', component: EmpleadosComponent,
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'listadoempleados'},
