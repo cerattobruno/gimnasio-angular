@@ -78,22 +78,31 @@
                     <label>Saldo</label>
                     <input type="number" class="form-control is-invalid" placeholder="$$$$$$$$$$$" disabled>
                 </div>
+                <br>
+                <div class="form-row">
+                    <label>A cobrar</label>
+                    <input type="number" class="form-control" placeholder="Ingrese monto a cobrar">
+                </div>
                 <hr>
                 <div class="form-row">
                     <div class="form-check form-check-inline col-md-3">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="efectivo" [(ngModel)]="efectivo" ng-init="efectivo = true" value="option1">
                         <label class="form-check-label" for="inlineRadio1">Contado/Efectivo</label>
-                        <i class="far fa-money-bill-alt"></i>
+                        <i class="fa fa-money-bill-wave"></i>
                     </div>
                     <div class="form-check form-check-inline col-md-3">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="debito" [(ngModel)]="debito" ng-init="debito = false" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Débito</label>
-                        <i class="fas fa-money-check-alt"></i>
+                        <label class="form-check-label" for="inlineRadio2">
+                            Débito <i class="fa fa-credit-card"></i>
+                        </label>
+
                     </div>
                     <div class="form-check form-check-inline col-md-3">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="credito" [(ngModel)]="credito" ng-init="credito = false" value="option3">
-                        <label class="form-check-label" for="inlineRadio3">Crédito</label>
-                        <i class="far fa-credit-card"></i>
+                        <label class="form-check-label" for="inlineRadio3">
+                            Crédito <i class="fa fa-credit-card"></i>
+                         </label>
+
                     </div>
                 </div>
                 <hr>

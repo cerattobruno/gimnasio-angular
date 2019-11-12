@@ -4,7 +4,7 @@
     </mat-form-field>
     <mat-table [dataSource]="dataSource" matSort>
 
-        <ng-container matColumnDef="nombre">
+        <ng-container matColumnDef="nombre" class="prueba">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
             <mat-cell *matCellDef="let socios"> {{socios.nombre}} </mat-cell>
         </ng-container>
@@ -28,7 +28,7 @@
                     <div class="col-md-3">
                         <button type="button" [routerLink]="['/socios', socios.id]" routerLinkActive="router-link-active" class="btn btn-block btn-warning btn-sm">
                           <!-- Editar -->
-                          <i class="material-icons">remove_red_eye</i> 
+                          <i class="material-icons">visibility</i>
                         </button>
                     </div>
 

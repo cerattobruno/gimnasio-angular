@@ -1,3 +1,105 @@
-<p>
-  rutinas works!
-</p>
+<br>
+<div class="col">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-md-10">
+                    <h5 class="float-left">Nueva rutina: <small>{{socio.apellido}}, {{socio.nombre}}</small></h5>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" [routerLink]="['/socios/lista']" class="float-right btn btn-danger w-10 ">
+                  <!-- <i class="material-icons">cancel</i> -->
+                  <i class="fa fa-arrow-left"></i>                    
+              </button>
+                </div>
+            </div>
+            <hr>
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="" name="nombre">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Dias por semana</label>
+                        <input type="number" class="form-control" placeholder="" name="dias">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Duración</label>
+                        <input type="number" class="form-control" placeholder="" name="duracion">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Descripción</label>
+                        <textarea rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="form-gruop col-md-12">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" (click)="agregarDia(1)" class="float-left btn btn-sm btn-success w-10 ">
+                                  <!-- <i class="fa fa-arrow-left"></i> -->
+                                  Agregar Día
+                              </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <div *ngFor="let d of cantDias; let i=index" class="row">
+                                <div class="col-md-8 encabezado">
+                                    <label><b>Dia {{i+1}}</b></label>
+                                </div>
+                                <div class="col-md-4 encabezado m-auto">
+                                    <button type="button" (click)="agregarEjercicio(1)" class="float-right btn btn-sm btn-secondary w-10 ">
+                                      <!-- <i class="fa fa-arrow-left"></i> -->
+                                      Agregar ejercicio
+                                    </button>
+                                </div>
+
+                                <br>
+                                <div *ngFor="let cantidad of cantEjercicios" class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <select class="custom-select" id="inputGroupSelect01">
+                                            <option selected>Músculo</option>
+                                            <option value="Piernas">Piernas</option>
+                                            <option value="Pecho">Pecho</option>
+                                            <option value="Espalda">Espalda</option>
+                                            <option value="Biceps">Bíceps</option>
+                                            <option value="Triceps">Tríceps</option>
+                                            <option value="Hombros">Hombros</option>
+                                            <option value="Abdominales">Abdominales</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="custom-select" id="inputGroupSelect01">
+                                            <option selected>Ejercicio</option>
+                                            <option value="Curl concentrado">Curl concentrado</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="number" class="form-control" placeholder="Rep" name="rep">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="number" class="form-control" placeholder="Series" name="series">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="number" class="form-control" placeholder="Peso" name="peso">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
