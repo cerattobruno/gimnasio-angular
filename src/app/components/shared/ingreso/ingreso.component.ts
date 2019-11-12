@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
-import { DjangoService } from '../../../services/django.service';
+import { DjangoService } from 'src/app/services/django.service'
 import { AsistenciaSocioModel } from '../../../models/asistenciaSocio.model';
 
 
@@ -23,7 +22,7 @@ export class IngresoComponent implements OnInit {
 
   constructor( private djangoService: DjangoService) {
      this.getAsistenciaSocio();
-     // this.getSocios();
+     
   }
 
   ngOnInit() {
@@ -35,8 +34,6 @@ export class IngresoComponent implements OnInit {
     this.djangoService.getAsistenciaSocios().subscribe(
       data => {
         this.asistencia = data['results'];
-        // console.log(data);
-        // console.log(this.asistencia);
         this.ultimoIngreso(this.asistencia[this.asistencia.length - 1].socio);
       },
       error => {
@@ -51,8 +48,6 @@ export class IngresoComponent implements OnInit {
         this.socio = data;
         this.loading = false;
         this.socios = data;
-        // this.socios.push( data );
-        // console.log(this.socios);
         this.getActividad(this.socio.actividad);
       });
   }
@@ -67,21 +62,6 @@ export class IngresoComponent implements OnInit {
       data => {
         this.actividad = data;
         this.loading = false;
-        // console.log(this.actividad);
       });
   }
-
-/*
-  getSocios = () => {
-    this.djangoService.getSocios().subscribe(
-      data => {
-        this.socios = data["results"];
-        console.log('Socios:', this.socios);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-  */
 }

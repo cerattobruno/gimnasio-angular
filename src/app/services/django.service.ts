@@ -12,23 +12,24 @@ export class DjangoService {
 
   baseurl = "http://127.0.0.1:8000";
 
-  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  //headers = new HttpHeaders();
 
   private httpOptions: any;
+  public tokenuser: any;
 
   public user_token: string;
 
-  constructor(  private router: Router,
-                private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient) {
     this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json',
+      'Authorization': 'Token ' + localStorage.getItem("usertoken")})
     };
+    this.tokenuser = localStorage.getItem("usertoken");
   }
 
-  // REGISTRO DE USUARIOS
+  // AUTENTICACION
 
   public registroUsuarios(userData): Observable<any> {
-    // return this.http.post(`${this.baseurl}/usuarios/`, userData);
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -38,10 +39,7 @@ export class DjangoService {
   }
 
 
-  // SESIÓN USUARIOS
-
   public loginUsuarios(userData): Observable<any> {
-    // console.log('Desde djangoServ:', userData);
     return this.http.post(`${this.baseurl}/auth/`, userData);
   }
 
@@ -66,19 +64,19 @@ export class DjangoService {
 
     getUser(id): Observable<any> {
       return this.http.get(this.baseurl + '/users/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
   // EMPLEADOS
     getEmpleados(): Observable<any> {
       return this.http.get(this.baseurl + '/empleados/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getEmpleado(id): Observable<any> {
       return this.http.get(this.baseurl + '/empleados/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearEmpleado(post) {
@@ -92,19 +90,24 @@ export class DjangoService {
 
     eliminarEmpleado(id): Observable<any> {
       return this.http.delete(this.baseurl + '/empleados/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
   // SOCIOS
     getSocios(): Observable<SocioModel[]> {
-      return this.http.get<SocioModel[]>(this.baseurl + '/socios/',
-      {headers: this.httpHeaders});
+      console.log(this.httpOptions);
+      this.httpOptions = {  
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',  
+          'Authorization': 'Token ' + this.tokenuser,
+        })
+      };
+      return this.http.get<SocioModel[]>(this.baseurl + '/socios/', {headers: this.httpOptions});
     }
 
     getSocio(id): Observable<any> {
-      return this.http.get(this.baseurl + '/socios/' + id + '/',
-      {headers: this.httpHeaders});
+      return this.http.get(this.baseurl + '/socios/' + id + '/', {headers: this.httpOptions});
     }
 
     crearSocio(post) {
@@ -118,7 +121,7 @@ export class DjangoService {
 
     eliminarSocio(id): Observable<any> {
       return this.http.delete(this.baseurl + '/socios/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -126,12 +129,12 @@ export class DjangoService {
 
     getActividades(): Observable<any> {
       return this.http.get(this.baseurl + '/actividades/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getActividad(id): Observable<any> {
       return this.http.get(this.baseurl + '/actividades/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearActividad(post) {
@@ -145,7 +148,7 @@ export class DjangoService {
 
     eliminarActividad(id): Observable<any> {
       return this.http.delete(this.baseurl + '/actividades/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -153,12 +156,12 @@ export class DjangoService {
 
     getSucursales(): Observable<any> {
       return this.http.get(this.baseurl + '/sucursales/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getSucursal(id): Observable<any> {
       return this.http.get(this.baseurl + '/sucursales/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearSucursal(post) {
@@ -172,7 +175,7 @@ export class DjangoService {
 
     eliminarSucursal(id): Observable<any> {
       return this.http.delete(this.baseurl + '/sucursales/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -180,12 +183,12 @@ export class DjangoService {
 
     getProfesionales(): Observable<any> {
       return this.http.get(this.baseurl + '/profesionales/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getProfesional(id): Observable<any> {
       return this.http.get(this.baseurl + '/profesionales/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearProfesional(post) {
@@ -199,19 +202,19 @@ export class DjangoService {
 
     eliminarProfesional(id): Observable<any> {
       return this.http.delete(this.baseurl + '/profesionales/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
   // TURNOS
     getTurnos(): Observable<any> {
       return this.http.get(this.baseurl + '/turnos/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getTurno(id): Observable<any> {
       return this.http.get(this.baseurl + '/turnos/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearTurno(post) {
@@ -225,7 +228,7 @@ export class DjangoService {
 
     eliminarTurno(id): Observable<any> {
       return this.http.delete(this.baseurl + '/turnos/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -233,12 +236,12 @@ export class DjangoService {
 
     getAutoridades(): Observable<any> {
       return this.http.get(this.baseurl + '/autoridades/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getAutoridad(id): Observable<any> {
       return this.http.get(this.baseurl + '/autoridades/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearAutoridad(post) {
@@ -252,7 +255,7 @@ export class DjangoService {
 
     eliminarAutoridad(id): Observable<any> {
       return this.http.delete(this.baseurl + '/autoridades/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -260,12 +263,12 @@ export class DjangoService {
 
     getRutinas(): Observable<any> {
       return this.http.get(this.baseurl + '/rutinas/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getRutina(id): Observable<any> {
       return this.http.get(this.baseurl + '/rutinas/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearRutina(post) {
@@ -279,7 +282,7 @@ export class DjangoService {
 
     eliminarRutina(id): Observable<any> {
       return this.http.delete(this.baseurl + '/rutinas/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
 
@@ -287,12 +290,12 @@ export class DjangoService {
 
     getHorarios(): Observable<any> {
       return this.http.get(this.baseurl + '/horarios/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     getHorario(id): Observable<any> {
       return this.http.get(this.baseurl + '/horarios/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearHorario(post) {
@@ -306,14 +309,14 @@ export class DjangoService {
 
     eliminarHorario(id): Observable<any> {
       return this.http.delete(this.baseurl + '/horarios/' + id + '/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     // ASISTENCIA SOCIOS
 
     getAsistenciaSocios(): Observable<any> {
       return this.http.get(this.baseurl + '/asistenciasocios/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
     crearAsisteciaSocio(post) {
@@ -329,7 +332,7 @@ export class DjangoService {
 
     getCuotas(): Observable<any> {
       return this.http.get(this.baseurl + '/cuotas/',
-      {headers: this.httpHeaders});
+      {headers: this.httpOptions});
     }
 
   }
