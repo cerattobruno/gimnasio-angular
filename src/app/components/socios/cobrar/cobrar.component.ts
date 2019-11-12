@@ -11,8 +11,10 @@ export class CobrarComponent implements OnInit {
 
   socio: any = {} ;
   actividad: any = {};
-  cuotas: any = {};
+  cuotas: Array<any> = [];
   cuotasPersonal: any = {};
+
+  c: number;
 
   constructor( private activatedRoute: ActivatedRoute,
                private django: DjangoService ) {
@@ -21,7 +23,7 @@ export class CobrarComponent implements OnInit {
     this.buscarSocio( params['id'] );
     // console.log('Socio:', this.socio);
     // this.buscarActividad(this.socio.actividad);
-    this.buscarCuotas();
+    // this.buscarCuotas();
     });
   }
 
@@ -35,6 +37,7 @@ export class CobrarComponent implements OnInit {
         this.socio = data;
         // this.loading = false;
         this.buscarActividad(data.actividad);
+        this.buscarCuotas();
       });
   }
 
@@ -52,7 +55,8 @@ export class CobrarComponent implements OnInit {
     this.django.getCuotas().subscribe(
       data => {
         this.cuotas = data['results'];
-        console.log(this.cuotas);
+        console.log('Tabla cuotas:', this.cuotas);
+        console.log(this.cuotas.length);
       },
       error => {
         console.log(error);
@@ -60,18 +64,22 @@ export class CobrarComponent implements OnInit {
     );
 
     this.buscarCuotaEspecifica( this.socio.id);
-    console.log(this.socio);
+    // console.log('soy buscarCuotas:', this.socio.id);
   }
 
-  buscarCuotaEspecifica( id: string) {
+  buscarCuotaEspecifica( id: number) {
     let i = 0;
+    console.log('hola soy buscarCuotaEspecifica!');
     console.log(this.cuotas);
+    console.log('id: ', id);
     for ( i = 0; i < this.cuotas.length ; i++) {
-      if ( id === this.cuotas.socio[i]) {
+      console.log('entre al for');
+      console.log(this.cuotas[i]);
+      if ( id === this.cuotas[i].socio) {
         this.cuotasPersonal.push(this.cuotas[i]) ;
         console.log(this.cuotasPersonal);
         console.log('ID:', id);
-        console.log('id socio:', this.cuotas.socio[i]);
+        console.log('id socio:', this.cuotas[i].socio);
       } else {console.log('no encontre coincidencia');}
     }
   }
