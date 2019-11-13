@@ -2,39 +2,36 @@
     <table class="table table-sm table-hover">
         <thead class="thead-light">
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Sucursal</th>
+                <th scope="col">Domicilio</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Telefono</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let empleado of empleados; let i = index">
-                <th scope="row">{{i + 1}}</th>
-                <td>{{empleado.nombre}}</td>
-                <td>{{empleado.apellido}}</td>
-                <td>{{empleado.sucursal}}</td>
+            <tr *ngFor="let proveedor of proveedores; let i = index">
+                <td>{{proveedor.nombre | uppercase }}</td>
+                <td>{{proveedor.domicilio | uppercase }}</td>
+                <td>{{proveedor.correo | uppercase }}</td>
+                <td>{{proveedor.telefono | uppercase }}</td>
                 <td>
                     <div class="row">
-                        <div class="col-md-4">
-                            <button type="button" [routerLink]="['/empleados', i]" routerLinkActive="router-link-active" class="btn btn-block btn-warning btn-sm">
+                        <div class="col-md-12">
+                            <button type="button" [routerLink]="['/empleados', i]" routerLinkActive="router-link-active" class="btn btn-warning btn-sm">
                               <!-- Editar -->
-                              <i class="material-icons">create</i>
-                            </button>
-                        </div>
+                              <i class="material-icons">visibility</i>
+                            </button> &nbsp;
 
-                        <div class="col-md-4">
-                            <button (click)="bajaEmpleado(empleado.id)" type="button" class="btn btn-block btn-danger btn-sm">
-                              <!-- Eliminar -->
-                              <i class="material-icons">clear</i>
-                            </button>
-                        </div>
 
-                        <div class="col-md-4">
-                            <button type="button" [routerLink]="['empleados/horastrabajas', i]" routerLinkActive="router-link-active" class="btn btn-block btn-success btn-sm">
+                            <button type="button" [routerLink]="['empleados/horastrabajas', i]" routerLinkActive="router-link-active" class="btn  btn-success btn-sm">
                               <!-- Liquidar -->
                               <i class="material-icons">attach_money</i>
+                            </button> &nbsp;
+
+                            <button (click)="bajaProveedor(proveedor.id)" type="button" class="btn  btn-danger btn-sm">
+                                <!-- Eliminar -->
+                                <i class="material-icons">block</i>
                             </button>
                         </div>
                     </div>

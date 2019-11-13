@@ -10,6 +10,8 @@ import {SocioModel} from 'src/app/models/socio.model'
 })
 export class DjangoService {
 
+  banderaEntrada = false;
+
   baseurl = "http://127.0.0.1:8000";
 
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
@@ -162,12 +164,12 @@ export class DjangoService {
     }
 
     crearSucursal(post) {
-      this.httpOptions = {  
+      this.httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
+          'Content-Type': 'application/json',
         })
       };
-      return this.http.post(`${this.baseurl}/socios/`, JSON.stringify(post), this.httpOptions);
+      return this.http.post(`${this.baseurl}/sucursales/`, JSON.stringify(post), this.httpOptions);
     }
 
     eliminarSucursal(id): Observable<any> {
@@ -332,4 +334,30 @@ export class DjangoService {
       {headers: this.httpHeaders});
     }
 
+
+    // PROVEEDORES
+
+    getProveedores(): Observable<any> {
+      return this.http.get(this.baseurl + '/proveedores/',
+      {headers: this.httpHeaders});
+    }
+
+    getProveedor(id): Observable<any> {
+      return this.http.get(this.baseurl + '/proveedor/' + id + '/',
+      {headers: this.httpHeaders});
+    }
+
+    crearProveedor(post) {
+      this.httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        })
+      };
+      return this.http.post(`${this.baseurl}/proveedores/`, JSON.stringify(post), this.httpOptions);
+    }
+
+    eliminarProveedor(id): Observable<any> {
+      return this.http.delete(this.baseurl + '/proveedores/' + id + '/',
+      {headers: this.httpHeaders});
+    }
   }

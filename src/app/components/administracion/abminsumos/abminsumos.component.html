@@ -3,48 +3,54 @@
         <table class="table table-sm">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Fecha de compra</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Observaciones</th>
-                    <th scope="col">Actividad</th>
                     <th scope="col">Proveedor</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let insu of insumos; let i = index">
-                    <th scope="row">{{insu.idInsumo}}</th>
                     <td>{{insu.nombre}}</td>
                     <td>{{insu.fechaCompra}}</td>
                     <td>
                         <div *ngIf="insu.estado === 'Excelente' ">
-                            <span class="badge badge-pill badge-success">{{insu.estado}}</span>
+                            <span class="badge badge-pill badge-success">
+                                <i class="material-icons">
+                                    check_circle_outline
+                                </i>
+                            </span>
                         </div>
                         <div *ngIf="insu.estado === 'Roto' ">
-                            <span class="badge badge-pill badge-warning">{{insu.estado}}</span>
+                            <span class="badge badge-pill badge-warning">
+                                <i class="material-icons">
+                                    highlight_off
+                                </i>
+                            </span>
                         </div>
                         <div *ngIf="insu.estado === 'En reparación' ">
-                            <span class="badge badge-pill badge-danger">{{insu.estado}}</span>
+                            <span class="badge badge-pill badge-danger">
+                                <i class="material-icons">
+                                    history
+                                </i>
+                            </span>
                         </div>
                     </td>
                     <td>{{insu.observaciones}}</td>
-                    <td>{{insu.actividad}}</td>
                     <td>{{insu.idProveedor}}</td>
                     <td>
                         <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-warning btn-sm">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-warning btn-sm">
                                   <!-- Editar -->
-                                  <i class="material-icons">create</i>
-                                </button>
-                            </div>
+                                  <i class="material-icons">visibility</i>
+                                </button> &nbsp;
 
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-danger btn-sm">
+                                <button type="button" class="btn  btn-danger btn-sm">
                                   <!-- Eliminar -->
-                                  <i class="material-icons">clear</i>
+                                  <i class="material-icons">block</i>
                                 </button>
                             </div>
                         </div>

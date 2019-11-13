@@ -25,41 +25,37 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
             <mat-cell *matCellDef="let socios">
                 <div class="row">
-                    <div class="col-md-3">
-                        <button type="button" [routerLink]="['/socios', socios.id]" routerLinkActive="router-link-active" class="btn btn-block btn-warning btn-sm">
+                    <div class="col-md-12">
+                        <button type="button" [routerLink]="['/socios', socios.id]" routerLinkActive="router-link-active" class="btn btn-warning btn-sm">
                           <!-- Editar -->
                           <i class="material-icons">visibility</i>
-                        </button>
-                    </div>
+                        </button> &nbsp;
 
-                    <!--
-                    <div class="col-md-2">
-                        <button (click)="bajaEmpleado(empleado.id)" type="button" class="btn btn-block btn-danger btn-sm w-100">
-                          Eliminar 
-                          <i class="material-icons">block</i>
-                        </button>
-                    </div>
-                    -->
 
-                    <div class="col-md-3">
-                        <button type="button" [routerLink]="['/socios/cobrar', socios.id]" routerLinkActive="router-link-active" class="btn btn-block btn-success btn-sm w-100">
+                        <button type="button" [routerLink]="['/socios/cobrar', socios.id]" routerLinkActive="router-link-active" class="btn  btn-success btn-sm ">
                           <!-- Cobrar -->
                           <i class="material-icons">attach_money</i>
-                        </button>
-                    </div>
+                        </button> &nbsp;
 
-                    <div class="col-md-3">
-                        <button type="button" [routerLink]="['/socios/reservar', socios.id]" routerLinkActive="router-link-active" class="btn btn-block btn-secondary btn-sm w-100">
+
+                        <button type="button" [routerLink]="['/socios/reservar', socios.id]" routerLinkActive="router-link-active" class="btn  btn-secondary btn-sm ">
                           <!-- Reservar -->
                           <i class="material-icons">event</i>
-                        </button>
-                    </div>
+                        </button> &nbsp;
 
-                    <div class="col-md-3">
-                        <button type="button" [routerLink]="['/socios/rutinas', socios.id]" routerLinkActive="router-link-active" class="btn btn-block btn-dark btn-sm w-100">
+
+                        <button type="button" [routerLink]="['/socios/rutinas', socios.id]" routerLinkActive="router-link-active" class="btn  btn-dark btn-sm ">
                           <!-- Rutinas -->
                           <i class="material-icons">assignment</i>
                         </button>
+
+
+                        <!--
+                        <button (click)="bajaEmpleado(empleado.id)" type="button" class="btn  btn-danger btn-sm ">
+                            <i class="material-icons">block</i>
+                        </button>
+                        -->
+
                     </div>
                 </div>
             </mat-cell>

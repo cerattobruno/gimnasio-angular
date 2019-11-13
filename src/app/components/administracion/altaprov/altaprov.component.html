@@ -6,26 +6,26 @@
                 <h5>Datos nuevo proveedor</h5>
                 <hr>
             </div>
-            <form #formContacto="ngForm" (ngSubmit)="onSubmit(); formContacto.reset()">
+            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre">
+                        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="proveedorNuevo.nombre" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-6">
                         <label>CUIT</label>
-                        <input type="text" class="form-control" placeholder="Cuit">
+                        <input type="text" class="form-control" placeholder="Cuit" [(ngModel)]="proveedorNuevo.cuit" [ngModelOptions]="{standalone: true}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Correo</label>
-                        <input type="email" class="form-control" placeholder="Correo">
+                        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="proveedorNuevo.correo" [ngModelOptions]="{standalone: true}">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Teléfono</label>
-                        <input type="tel" class="form-control" placeholder="Teléfono">
+                        <input type="tel" class="form-control" placeholder="Teléfono" [(ngModel)]="proveedorNuevo.telefono" [ngModelOptions]="{standalone: true}">
                     </div>
                 </div>
 
@@ -43,12 +43,17 @@
                           <option value="3">Limpieza</option>
                       </select>
                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Domicilio</label>
+                        <input type="text" class="form-control" placeholder="Domicilio" [(ngModel)]="proveedorNuevo.domicilio" [ngModelOptions]="{standalone: true}">
+                    </div>
                 </div>
 
                 <hr>
                 <div class="form-row">
                     <div class="form-group text-center col-md-6">
-                        <button type="submit " class="btn btn-info w-100 ">
+                        <button (click)="nuevoProveedor()" type="submit " data-toggle="modal" data-target="#exampleModal" class="btn btn-info w-100 ">
                           <i class="fa fa-save "></i>
                           Guardar
                       </button>
@@ -61,9 +66,42 @@
                     </div>
                 </div>
             </form>
+
+
+
+
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Mensaje del sistema</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div *ngIf="cargaCorrecta" class="modal-body">
+                            El proveedor se guardo con éxito! &nbsp;
+                            <i class="material-icons">
+                                sentiment_very_satisfied
+                            </i>
+                        </div>
+
+                        <div *ngIf="!cargaCorrecta" class="modal-body">
+                            El proveedor NO se guardo con éxito!
+                            <i class="material-icons"> &nbsp;
+                                sentiment_very_dissatisfied
+                            </i>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
-
 
 </div>

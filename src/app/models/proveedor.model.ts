@@ -9,5 +9,4 @@ export class ProveedorModel {
      public rubro: any,
      public saldo: number
     ) {}
- 
- }
+}

@@ -23,6 +23,8 @@ export class EntradaComponent implements OnInit {
 
   hora: Date;
 
+  bandera = false;
+
   dniSocio: string;
   encontrado = false;
   messagecuota: string;
@@ -40,6 +42,8 @@ export class EntradaComponent implements OnInit {
   constructor( private django: DjangoService) {
     this.hora = new Date();
     this.getSocios();
+
+    django.banderaEntrada = true;
   }
 
   ngOnInit() {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SucursalModel } from 'src/app/models/sucursal.model';
+import { DjangoService } from 'src/app/services/django.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-sucursal',
@@ -10,17 +12,46 @@ export class SucursalComponent implements OnInit {
 
   sucursales: SucursalModel[] = [];
 
-  s1: SucursalModel;
-  s2: SucursalModel;
+  nuevaSuc: any = {};
 
-  constructor() {
-    this.s1 = new SucursalModel ('S001-suc', 'Casa Central', 'Pedro Vittori 3200', '4695233');
-    this.s2 = new SucursalModel ('S002-suc', 'SmartGym-Sur', 'JJ Paso 2400', '4695236');
+  cargaCorrecta = false;
+  errorGuardado: any;
 
-    this.sucursales = [this.s1, this.s2];
-   }
+
+  constructor( private django: DjangoService) {
+    this.getSucursales();
+  }
 
   ngOnInit() {
   }
 
+  getSucursales = () => {
+    this.django.getSucursales().subscribe(
+      data => {
+        this.sucursales = data['results'];
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  nuevaSucursal() {
+    this.django.crearSucursal(this.nuevaSuc).subscribe(
+       data => {
+         this.getSucursales();
+         // console.log(data);
+         this.cargaCorrecta = true;
+         // console.log(this.cargaCorrecta);
+         return true;
+       },
+       error => {
+         console.error('Error saving!');
+         this.cargaCorrecta = false;
+         this.errorGuardado = throwError(error);
+         return throwError(error);
+       }
+    );
+  }
 }
