@@ -18,8 +18,6 @@ export class ListaComponent implements OnInit {
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  // socio: any = {};
-  // socios: any[] = [];
 
 
   constructor(private django: DjangoService) { }
@@ -32,12 +30,10 @@ export class ListaComponent implements OnInit {
     this.django.getSocios()
       .subscribe(
         x => {
-        // this.dataSource.data["results"] = x;
         this.dataSource = new MatTableDataSource();
         this.dataSource.data = x['results'];
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        // console.log(this.dataSource.data);
       },
       error => {
         console.log('There was an error while retrieving Socios!' + error);
