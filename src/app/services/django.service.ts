@@ -14,7 +14,7 @@ export class DjangoService {
 
   baseurl = "http://127.0.0.1:8000";
 
-  //headers = new HttpHeaders();
+  headers = new HttpHeaders();
 
   private httpOptions: any;
   public tokenuser: any;
@@ -32,12 +32,12 @@ export class DjangoService {
   // AUTENTICACION
 
   public registroUsuarios(userData): Observable<any> {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    };
-    return this.http.post(`${this.baseurl}/usuarios/`, JSON.stringify(userData), this.httpOptions);
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+        .set('Content-Type', 'application/json')
+    }
+    return this.http.post(`${this.baseurl}/usuarios/`, JSON.stringify(userData), header);
   }
 
 
@@ -65,29 +65,38 @@ export class DjangoService {
   }
 
     getUser(id): Observable<any> {
-      return this.http.get(this.baseurl + '/users/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/users/' + id + '/', header);
     }
 
 
   // EMPLEADOS
     getEmpleados(): Observable<any> {
-      return this.http.get(this.baseurl + '/empleados/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/empleados/', header);
     }
 
     getEmpleado(id): Observable<any> {
-      return this.http.get(this.baseurl + '/empleados/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/empleados/' + id + '/', header);
     }
 
     crearEmpleado(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/empleados/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/empleados/`, JSON.stringify(post), header);
     }
 
     eliminarEmpleado(id): Observable<any> {
@@ -98,27 +107,28 @@ export class DjangoService {
 
   // SOCIOS
     getSocios(): Observable<SocioModel[]> {
-      console.log(this.httpOptions);
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-          'Authorization': 'Token ' + this.tokenuser,
-        })
-      };
-      return this.http.get<SocioModel[]>(this.baseurl + '/socios/', {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get<SocioModel[]>(this.baseurl + '/socios/', header);
     }
 
     getSocio(id): Observable<any> {
-      return this.http.get(this.baseurl + '/socios/' + id + '/', {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/socios/' + id + '/', header);
     }
 
     crearSocio(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/socios/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/socios/`, JSON.stringify(post), header);
     }
 
     eliminarSocio(id): Observable<any> {
@@ -130,22 +140,29 @@ export class DjangoService {
   // ACTIVIDADES
 
     getActividades(): Observable<any> {
-      return this.http.get(this.baseurl + '/actividades/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/actividades/', header);
     }
 
     getActividad(id): Observable<any> {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
       return this.http.get(this.baseurl + '/actividades/' + id + '/',
       {headers: this.httpOptions});
     }
 
     crearActividad(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/actividades/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/actividades/`, JSON.stringify(post), header);
     }
 
     eliminarActividad(id): Observable<any> {
@@ -157,22 +174,28 @@ export class DjangoService {
   // SUCURSALES
 
     getSucursales(): Observable<any> {
-      return this.http.get(this.baseurl + '/sucursales/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/sucursales/', header);
     }
 
     getSucursal(id): Observable<any> {
-      return this.http.get(this.baseurl + '/sucursales/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/sucursales/' + id + '/', header);
     }
 
     crearSucursal(post) {
-      this.httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      };
-      return this.http.post(`${this.baseurl}/sucursales/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/sucursales/`, JSON.stringify(post), header);
     }
 
     eliminarSucursal(id): Observable<any> {
@@ -184,22 +207,28 @@ export class DjangoService {
   // PROFESIONALES
 
     getProfesionales(): Observable<any> {
-      return this.http.get(this.baseurl + '/profesionales/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/profesionales/', header);
     }
 
     getProfesional(id): Observable<any> {
-      return this.http.get(this.baseurl + '/profesionales/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/profesionales/' + id + '/', header);
     }
 
     crearProfesional(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/profesionales/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/profesionales/`, JSON.stringify(post), header);
     }
 
     eliminarProfesional(id): Observable<any> {
@@ -210,22 +239,28 @@ export class DjangoService {
 
   // TURNOS
     getTurnos(): Observable<any> {
-      return this.http.get(this.baseurl + '/turnos/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/turnos/', header);
     }
 
     getTurno(id): Observable<any> {
-      return this.http.get(this.baseurl + '/turnos/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/turnos/' + id + '/', header);
     }
 
     crearTurno(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/turnos/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/turnos/`, JSON.stringify(post), header);
     }
 
     eliminarTurno(id): Observable<any> {
@@ -237,22 +272,28 @@ export class DjangoService {
   // AUTORIDADES
 
     getAutoridades(): Observable<any> {
-      return this.http.get(this.baseurl + '/autoridades/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/autoridades/', header);
     }
 
     getAutoridad(id): Observable<any> {
-      return this.http.get(this.baseurl + '/autoridades/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/autoridades/' + id + '/', header);
     }
 
     crearAutoridad(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/autoridades/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/autoridades/`, JSON.stringify(post), header);
     }
 
     eliminarAutoridad(id): Observable<any> {
@@ -264,22 +305,28 @@ export class DjangoService {
   // RUTINAS
 
     getRutinas(): Observable<any> {
-      return this.http.get(this.baseurl + '/rutinas/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/rutinas/', header);
     }
 
     getRutina(id): Observable<any> {
-      return this.http.get(this.baseurl + '/rutinas/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/rutinas/' + id + '/', header);
     }
 
     crearRutina(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/rutinas/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/rutinas/`, JSON.stringify(post), header);
     }
 
     eliminarRutina(id): Observable<any> {
@@ -291,22 +338,28 @@ export class DjangoService {
   // HORARIOS
 
     getHorarios(): Observable<any> {
-      return this.http.get(this.baseurl + '/horarios/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/horarios/', header);
     }
 
     getHorario(id): Observable<any> {
-      return this.http.get(this.baseurl + '/horarios/' + id + '/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/horarios/' + id + '/', header);
     }
 
     crearHorario(post) {
-      this.httpOptions = {  
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',  
-        })
-      };
-      return this.http.post(`${this.baseurl}/horarios/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/horarios/`, JSON.stringify(post), header);
     }
 
     eliminarHorario(id): Observable<any> {
@@ -317,50 +370,65 @@ export class DjangoService {
     // ASISTENCIA SOCIOS
 
     getAsistenciaSocios(): Observable<any> {
-      return this.http.get(this.baseurl + '/asistenciasocios/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/asistenciasocios/', header);
     }
 
     crearAsisteciaSocio(post) {
-      this.httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      };
-      return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), header);
     }
 
     // REGISTRO DE CUOTAS
 
     getCuotas(): Observable<any> {
-      return this.http.get(this.baseurl + '/cuotas/',
-      {headers: this.httpOptions});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/cuotas/', header);
     }
 
 
     // PROVEEDORES
 
     getProveedores(): Observable<any> {
-      return this.http.get(this.baseurl + '/proveedores/',
-      {headers: this.httpHeaders});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/proveedores/', header);
     }
 
     getProveedor(id): Observable<any> {
-      return this.http.get(this.baseurl + '/proveedor/' + id + '/',
-      {headers: this.httpHeaders});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/proveedor/' + id + '/', header);
     }
 
     crearProveedor(post) {
-      this.httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      };
-      return this.http.post(`${this.baseurl}/proveedores/`, JSON.stringify(post), this.httpOptions);
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/proveedores/`, JSON.stringify(post), header);
     }
 
     eliminarProveedor(id): Observable<any> {
-      return this.http.delete(this.baseurl + '/proveedores/' + id + '/',
-      {headers: this.httpHeaders});
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.delete(this.baseurl + '/proveedores/' + id + '/', header);
     }
   }
