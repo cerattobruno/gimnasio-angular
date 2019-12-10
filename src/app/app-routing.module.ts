@@ -40,6 +40,10 @@ import { EditaractividadComponent } from './components/actividades/editaractivid
 import { ListadoactComponent } from './components/actividades/listadoact/listadoact.component';
 import { ListadoconsulComponent } from './components/centromedico/listadoconsul/listadoconsul.component';
 import { ListadoprofesionalesComponent } from './components/centromedico/listadoprofesionales/listadoprofesionales.component';
+import { AsistenciasComponent } from './components/gestionestadisticas/asistencias/asistencias.component';
+import { BoxesComponent } from './components/gestionestadisticas/boxes/boxes.component';
+import { CajaComponent } from './components/gestionestadisticas/caja/caja.component';
+import { SociosActividadComponent } from './components/gestionestadisticas/socios-actividad/socios-actividad.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
@@ -70,6 +74,7 @@ const routes: Routes = [
   {path: 'empleados/horastrabajadas/:id', component: HorastrabajadasComponent},
   {path: 'administracion', component: AdministracionComponent,
     children: [
+      
       {path: 'altaprov', component: AltaprovComponent},
       {path: 'modificarprov', component: ModificarprovComponent},
       {path: 'pagoprov', component: PagoprovComponent},
@@ -108,6 +113,10 @@ const routes: Routes = [
     children: [
       {path: 'listadosocios', component: ListadosociosComponent},
       {path: 'graficoscuentas', component: GraficoscuentasComponent},
+      {path: 'asistencias', component: AsistenciasComponent},
+      {path: 'boxes', component: BoxesComponent},
+      {path: 'caja', component: CajaComponent},
+      {path: 'sociosAct', component: SociosActividadComponent},
     ]
   },
   {path: 'entrada', component: EntradaComponent},

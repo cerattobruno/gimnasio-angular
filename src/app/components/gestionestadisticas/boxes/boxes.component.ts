@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 
 @Component({
-  selector: 'app-listadosocios',
-  templateUrl: './listadosocios.component.html',
-  styleUrls: ['./listadosocios.component.css']
+  selector: 'app-boxes',
+  templateUrl: './boxes.component.html',
+  styleUrls: ['./boxes.component.css']
 })
-export class ListadosociosComponent implements OnInit {
-
+export class BoxesComponent implements OnInit {
 
   constructor() { }
 
@@ -25,15 +25,15 @@ export class ListadosociosComponent implements OnInit {
     }
   };
 
-  public barChartLabels: Label[] = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT',
-  'NOV', 'DIC'];
-  public barChartType: ChartType = 'line';
+  public barChartLabels: Label[] = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES'];
+  public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [10, 25, 80, 90, 150, 160, 170, 175, 180, 200, 250, 250], label: 'Sucursal 1' },
-    { data: [28, 48, 40, 19, 86, 27, 90, 80, 90, 150, 160, 170, 230], label: 'Sucursal 2' }
+    { data: [10, 25, 80, 90, 150], label: 'Sucursal 1' },
+    { data: [9, 25, 78, 89, 140], label: 'Sucursal 2' },
+    { data: [19, 15, 88, 90, 120], label: 'Sucursal 3' }
   ];
 
   ngOnInit() {

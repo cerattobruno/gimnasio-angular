@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     this.djangoService.loginUsuarios(this.input).subscribe(
       response => {
         localStorage.setItem('usertoken', response.token);
-        alert('Bienvenido ' + this.input.username);
+        // alert('Bienvenido ' + this.input.username);
         this.navigate();
         // console.log("hola: ", response);
         // console.log(localStorage.getItem('usertoken'));

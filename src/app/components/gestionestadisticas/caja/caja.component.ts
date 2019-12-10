@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 
 @Component({
-  selector: 'app-listadosocios',
-  templateUrl: './listadosocios.component.html',
-  styleUrls: ['./listadosocios.component.css']
+  selector: 'app-caja',
+  templateUrl: './caja.component.html',
+  styleUrls: ['./caja.component.css']
 })
-export class ListadosociosComponent implements OnInit {
-
+export class CajaComponent implements OnInit {
 
   constructor() { }
 
@@ -32,8 +32,10 @@ export class ListadosociosComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [10, 25, 80, 90, 150, 160, 170, 175, 180, 200, 250, 250], label: 'Sucursal 1' },
-    { data: [28, 48, 40, 19, 86, 27, 90, 80, 90, 150, 160, 170, 230], label: 'Sucursal 2' }
+    { data: [70000, 60000, 60000, 50000, 30000, 25000, 40000, 50000, 80000, 80000, 80000,
+      100000], label: 'Egresos' },
+    { data: [50000, 60000, 65000, 120000, 150000, 270000, 300000, 380000, 450000, 520000, 600000,
+      680000], label: 'Ingresos' }
   ];
 
   ngOnInit() {

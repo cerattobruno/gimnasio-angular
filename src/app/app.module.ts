@@ -5,7 +5,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import {DataTableModule} from 'angular-6-datatable';
 
 import { MatInputModule, MatPaginatorModule, MatTableModule,
-  MatSortModule, MatPaginatorIntl } from '@angular/material';
+  MatSortModule, MatPaginatorIntl
+} from '@angular/material';
+
+import { ChartsModule } from 'ng2-charts';
+// import { ChartDataLabels } from 'chartjs-plugin-datalabels';
 
 
 
@@ -60,6 +64,10 @@ import { ListadoprofesionalesComponent } from './components/centromedico/listado
 
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { AsistenciasComponent } from './components/gestionestadisticas/asistencias/asistencias.component';
+import { BoxesComponent } from './components/gestionestadisticas/boxes/boxes.component';
+import { CajaComponent } from './components/gestionestadisticas/caja/caja.component';
+import { SociosActividadComponent } from './components/gestionestadisticas/socios-actividad/socios-actividad.component';
 registerLocaleData(localeEs);
 
 
@@ -108,7 +116,11 @@ registerLocaleData(localeEs);
     EditaractividadComponent,
     ListadoactComponent,
     ListadoconsulComponent,
-    ListadoprofesionalesComponent
+    ListadoprofesionalesComponent,
+    AsistenciasComponent,
+    BoxesComponent,
+    CajaComponent,
+    SociosActividadComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +133,8 @@ registerLocaleData(localeEs);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    ChartsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
