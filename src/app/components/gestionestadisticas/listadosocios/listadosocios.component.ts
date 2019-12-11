@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-listadosocios',
@@ -10,8 +11,13 @@ import { Label } from 'ng2-charts';
 })
 export class ListadosociosComponent implements OnInit {
 
+  socios: Array<any> = [];
 
-  constructor() { }
+
+  constructor( private django: DjangoService) { 
+    this.getSocios();
+  }
+
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -32,11 +38,23 @@ export class ListadosociosComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [10, 25, 80, 90, 150, 160, 170, 175, 180, 200, 250, 250], label: 'Sucursal 1' },
-    { data: [28, 48, 40, 19, 86, 27, 90, 80, 90, 150, 160, 170, 230], label: 'Sucursal 2' }
+    { data: [5, 10, 20], label: 'Sucursal 1' }
   ];
 
   ngOnInit() {
+  }
+
+  getSocios = () => {
+    this.django.getSocios().subscribe(
+      data => {
+        this.socios = data['results'];
+        console.log(this.socios);
+        console.log(this.socios.length);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   // events

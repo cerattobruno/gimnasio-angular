@@ -10,14 +10,10 @@ import { DjangoService } from '../../services/django.service';
 })
 export class PrincipalComponent implements OnInit {
 
-  actividades: Array<ActividadesModel> = [];
+  actividades: Array<any> = [];
 
-  act1: ActividadesModel;
-  act2: ActividadesModel;
-  act3: ActividadesModel;
-  act4: ActividadesModel;
+  horarios: Array<any> = [];
 
-  dias: Array<string> = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
 
   constructor( private djangoService: DjangoService ) {}
 
@@ -25,14 +21,32 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
    // this.login.checktoken();
     this.djangoService.checktoken();
+    this.getAct();
+    this.getHorarios();
+  }
 
-    this.act1 = new ActividadesModel ('Musculacion', '900', ['7:00', '23:00'], '1');
-    this.act2 = new ActividadesModel ('Boxeo', '900', [], '1');
-    this.act3 = new ActividadesModel ('Crossfit', '900', [], '1');
-    this.act4 = new ActividadesModel ('Pilates', '900', [], '1');
+  getAct = () => {
+    this.djangoService.getActividades().subscribe(
+      data => {
+        this.actividades = data['results'];
+        // console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
-    this.actividades = [this.act1, this.act2, this.act3, this.act4];
-
+  getHorarios = () => {
+    this.djangoService.getHorarios().subscribe(
+      data => {
+        this.horarios = data['results'];
+        // console.log('Horarios:', data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

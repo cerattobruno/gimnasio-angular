@@ -1,4 +1,4 @@
-<nav class="navbar  nav-pills  navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar    navbar-expand-lg navbar-dark encabezado">
     <a class="navbar-brand titulo" href="#">
         <!-- <i class="fas fa-dumbbell"></i> -->
         <img src="../../../../assets/logo1.png" width="30" height="30" class="d-inline-block align-top" alt=""> SmartGYM
@@ -8,7 +8,7 @@
   </button>
 
     <div *ngIf="this.djangoService.user_token && !this.djangoService.banderaEntrada" class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav  mr-auto top-menu">
+        <ul class="navbar-nav nav-pills  mr-auto top-menu">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['principal']" [routerLinkActive]="['active']">Principal <span class="sr-only">(current)</span></a>
             </li>
@@ -40,13 +40,13 @@
                 <a class="nav-link" [routerLink]="['gestionestadisticas']" [routerLinkActive]="['active']">Estadísticas </a>
             </li>
             -->
+
         </ul>
         <span class="navbar-text">
-            <span class="letras ">Cerrar Sesión</span>
-        <button class="btn btn-sm btn-danger m-auto boton " (click)="this.djangoService.logout()" *ngIf="this.djangoService.user_token">
-                
-            <i class="fa fa-sign-out" style="font-size:20px"></i>
-            </button>
+            <button class="btn btn-sm btn-danger m-auto boton " (click)="this.djangoService.logout()" *ngIf="this.djangoService.user_token">
+                <span class="">Cerrar Sesión </span>
+        <i class="fa fa-sign-out" style="font-size:20px"></i>
+        </button>
         </span>
 
     </div>

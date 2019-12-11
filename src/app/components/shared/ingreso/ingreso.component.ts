@@ -22,7 +22,6 @@ export class IngresoComponent implements OnInit {
 
   constructor( private djangoService: DjangoService) {
      this.getAsistenciaSocio();
-     
   }
 
   ngOnInit() {
@@ -30,11 +29,25 @@ export class IngresoComponent implements OnInit {
 
   }
 
+  /*
+  getAsistencias = () => {
+    this.djangoService.getAsistenciaSocios().subscribe(
+      data => {
+        this.empleados = data['results'];
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+  */
   getAsistenciaSocio = () => {
     this.djangoService.getAsistenciaSocios().subscribe(
       data => {
         this.asistencia = data['results'];
         this.ultimoIngreso(this.asistencia[this.asistencia.length - 1].socio);
+        console.log(this.asistencia);
       },
       error => {
         console.log(error);
@@ -47,8 +60,10 @@ export class IngresoComponent implements OnInit {
       data => {
         this.socio = data;
         this.loading = false;
-        this.socios = data;
-        this.getActividad(this.socio.actividad);
+        // this.socios.push(data);
+        // console.log(this.socios);
+        // this.getActividad(this.socio.actividad);
+        // console.log(this.socio);
       });
   }
 

@@ -1,13 +1,15 @@
-<div class="col">
-    <div class="row mt-2 ml-2">
-        <h4>Grilla de Horarios</h4>
+<div class="col m-auto">
+    <div class="row ml-2 mt-2">
+        <h4>Grilla de Actividades</h4>
     </div>
 
+    <!---
     <div class="table-responsive-md mt-2 ml-2 mr-2">
         <table class="table  table-hover table-borderless ">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Sucursal</th>
                     <th scope="col">Lunes</th>
                     <th scope="col">Martes</th>
                     <th scope="col">Miercoles</th>
@@ -19,58 +21,42 @@
             <tbody>
                 <tr *ngFor="let act of actividades; let i=index">
                     <th scope="row">{{act.nombre}}</th>
-                    <td *ngFor="let hora of dias">{{ act.horario[i] }} - {{ act.horario[i+1] }}</td>
+                    <td>{{act.sucursal}}</td>
+                    <td *ngFor="let hora of horarios">{{ hora.hora_inicio | date: 'shortTime' }} - {{ hora.hora_fin | date: 'shortTime' }}</td>
 
                 </tr>
             </tbody>
         </table>
     </div>
-
+    -->
+    <!--
     <hr>
     <div class="row mt-4 ml-2">
-        <h4>Listado de Precios</h4>
+        <h4>Listado de Actividades y precios</h4>
     </div>
-
-    <div class="table-responsive-md mt-2 ml-2 mr-2">
-        <table class="table table-hover table-borderless ">
-            <thead class="thead-light">
+    -->
+    <div class="table-responsive-md m-auto scroll ">
+        <table class="table table-hover table-borderless texto fondo">
+            <thead class="encabezado">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Musculación</th>
-                    <th scope="col">Boxeo</th>
-                    <th scope="col">Funcional</th>
-                    <th scope="col">Crossfit</th>
-                    <th scope="col">Pilates</th>
-                    <th scope="col">TOTAL</th>
+                    <th scope="col">Actividad</th>
+                    <th scope="col">Sucursal</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Horarios</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Pase común</th>
-                    <td>$1.000</td>
-                    <td>x2: $400 <br> x3: $500</td>
-                    <td>x2: $500 <br> x3: $700</td>
-                    <td>x2: $600 <br> x3: $800</td>
-                    <td>x2: $300 <br> x3: $450</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">Pase Libre</th>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>x</td>
-                    <td>-</td>
-                    <td>$1.500</td>
-                </tr>
-                <tr>
-                    <th scope="row">Pase Libre CrossFit</th>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>$2.000</td>
+                <tr *ngFor="let act of actividades; let i = index">
+                    <th scope="row">{{act.nombre}}</th>
+                    <td>{{act.sucursal}}</td>
+                    <td>{{act.precio | currency: 'CAD':'symbol-narrow'}}</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let dia of horarios">
+                                {{ dia.dia }}: {{ dia.hora_inicio | date: 'shortTime' }} - {{ dia.hora_fin | date: 'shortTime' }}
+                            </li>
+                        </ul>
+                    </td>
                 </tr>
             </tbody>
         </table>

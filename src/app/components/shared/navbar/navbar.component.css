@@ -17,3 +17,12 @@
     font-family: 'Pacifico', cursive;
     /* font-family: 'Righteous', cursive;*/
 }
+
+.encabezado {
+    background-color: #354052;
+    color: #6f7e95;
+}
+
+.nav-pills>li>a.active {
+    background-color: #47bac1!important;
+}

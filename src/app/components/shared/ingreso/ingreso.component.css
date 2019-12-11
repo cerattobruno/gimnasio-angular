@@ -27,3 +27,22 @@
     background-color: rgb(197, 40, 40);
     color: whitesmoke;
 }
+
+.bordeboton {
+    border-radius: 1rem;
+    width: 65%;
+    background-color: #47bac1;
+    color: whitesmoke;
+}
+
+.bordeboton:hover {
+    border-radius: 1rem;
+    width: 65%;
+    background-color: #354052;
+    color: #6f7e95;
+}
+
+.encabezado {
+    background-color: #354052;
+    color: #6f7e95;
+}

@@ -1,0 +1,19 @@
+.scroll {
+    height: 550px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.texto {
+    /* background-color: #ecf2f6; */
+    color: #6f7e95;
+}
+
+.encabezado {
+    background-color: #354052;
+    color: #d6d8da;
+}
+
+.fondo {
+    background-color: #ecf2f6;
+}
