@@ -63,7 +63,7 @@ export class IngresoComponent implements OnInit {
         // this.socios.push(data);
         // console.log(this.socios);
         // this.getActividad(this.socio.actividad);
-        // console.log(this.socio);
+        console.log(this.socio);
       });
   }
 
