@@ -1,9 +1,8 @@
 export class AsistenciaSocioModel {
     constructor(
-     public idAsistenciaSocio: string,
-     public idSocio: string,
+     public idSocio: number,
      public hora: string,
      public fecha: string,
-     public idSucursal: string,
+     public idSucursal: number,
     ) {}
 }

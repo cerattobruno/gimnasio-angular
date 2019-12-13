@@ -2,6 +2,7 @@
     border: 1px;
     border-color: black;
     max-width: 50%;
+    height: 90%;
     /* background-color: rgba(221, 217, 217, 0.534); */
     /* border-radius: 2rem; */
     overflow: hidden;
@@ -15,23 +16,25 @@
 }
 
 .rounded {
-    border-radius:.70rem!important;
+    border-radius: .70rem!important;
 }
 
 .rounded-left {
-    border-radius:.70rem!important;
+    border-radius: .70rem!important;
 }
 
 .rounded-right {
-    border-radius:.70rem!important;
+    border-radius: .70rem!important;
 }
 
-.input-group-text{
-	background: none!important;
-	border: none!important;
-	margin-left: -35px!important;
-	z-index: 100;
+.input-group-text {
+    background: none!important;
+    border: none!important;
+    margin-left: -35px!important;
+    z-index: 100;
 }
+
+
 /*
 .redondeo {
     border-radius: 2rem;

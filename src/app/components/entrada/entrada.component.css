@@ -42,13 +42,13 @@
 }
 
 .input-missing {
-    border: 5px outset rgb(197, 40, 40);
-    background-color: rgba(197, 40, 40, 0.94);
+    /* border: 5px outset rgb(197, 40, 40); */
+    background-color: rgba(197, 40, 40, 0.973);
     color: whitesmoke;
 }
 
 .input-succes {
-    border: 5px outset rgb(36, 163, 104);
-    background-color: rgba(36, 163, 104, 0.74);
+    /* border: 5px outset rgb(36, 163, 104); */
+    background-color: rgba(36, 163, 104, 0.966);
     color: whitesmoke;
 }

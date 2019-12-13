@@ -1,5 +1,5 @@
 <div class="container">
-    <div class=" col  container login" [ngClass]="{'input-missing' : !dejarPasar, 'input-succes' : !inicio}">
+    <div class=" col  container login">
         <div class="row mt-3">
             <div class="col-md-9 text-right">
                 <h3 class="m-auto">INGRESO AL GYM</h3>
@@ -34,31 +34,102 @@
 
             <div *ngIf="customCheck1" class="form-group input-group ">
                 <div class="btn-group btn-group-sm btn-block " role="group" aria-label="...">
-                    <button type="button" class="btn btn-outline-success boton">Entrada</button>
-                    <button type="button" class="btn btn-outline-danger boton">Salida</button>
+                    <button (click)="accionEntrar()" type="button" class="btn btn-outline-success boton">Entrada</button>
+                    <button (click)="accionSalir()" type="button" class="btn btn-outline-danger boton">Salida</button>
                 </div>
             </div>
 
+            <!--
             <div *ngIf="!dejarPasar">
                 <label> {{ messagecuota }} </label>
             </div>
+            -->
 
 
             <div *ngIf="!customCheck1" class="form-group input-group">
-                <button (click)="controlar()" type="submit" class="btn btn-info m-auto w-50 boton " id="login-button">Ingresar</button>
+                <button (click)="controlar()" type="submit" class="btn btn-info m-auto w-50 boton " id="login-button" data-toggle="modal" data-target="#exampleModalCenter">Ingresar</button>
             </div>
 
             <div *ngIf="customCheck1" class="form-group input-group">
-                <button type="submit" class="btn btn-info m-auto w-50 boton " id="login-button">Fichar</button>
+                <button (click)="controlarPersonal()" type="submit" class="btn btn-info m-auto w-50 boton " id="login-button" [disabled]="!accion">Fichar</button>
             </div>
 
+            <!--
             <div *ngIf="errormessage" class="form-group">
                 <div class="alert alert-danger w-100 text-center boton" role="alert">
                     <span id="errormessage">{{ errormessage }}</span>
                 </div>
             </div>
-
+            -->
         </form>
 
+    </div>
+</div>
+<div *ngIf="!inicio">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content input-succes">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Disfrute de un excelente entrenamiento! <i class="fa fa-check-circle"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    {{socio.nombre}}, {{socio.apellido}} <br> Al día!
+                </div>
+                <div class="modal-footer">
+
+                    <button (click)="reiniciar()" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!dejarPasar">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content input-missing">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Cuota vencida! <i class="fa fa-ban"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{socio.nombre}}, {{socio.apellido}} <br> Pase por recepción para abonar su cuota!
+                </div>
+                <div class="modal-footer">
+
+                    <button (click)="reiniciar()" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="errormessage">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content input-missing">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Dni inválido! <i class="fa fa-ban"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Usted no es socio del Gimnasio, por favor pase por recepción y regístrese!
+                </div>
+                <div class="modal-footer">
+
+                    <button (click)="reiniciar()" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

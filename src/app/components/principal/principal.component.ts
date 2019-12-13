@@ -41,7 +41,7 @@ export class PrincipalComponent implements OnInit {
     this.djangoService.getHorarios().subscribe(
       data => {
         this.horarios = data['results'];
-        // console.log('Horarios:', data);
+        console.log('Horarios:', data);
       },
       error => {
         console.log(error);
