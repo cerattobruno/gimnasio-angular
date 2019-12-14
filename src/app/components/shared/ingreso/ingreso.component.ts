@@ -19,6 +19,8 @@ export class IngresoComponent implements OnInit {
 
   socios: any[] = [];
 
+  abrir = true;
+
 
   constructor( private djangoService: DjangoService) {
      this.getAsistenciaSocio();
@@ -78,5 +80,10 @@ export class IngresoComponent implements OnInit {
         this.actividad = data;
         this.loading = false;
       });
+  }
+
+  abrirPuerta() {
+    this.abrir = false;
+    console.log(this.abrir);
   }
 }

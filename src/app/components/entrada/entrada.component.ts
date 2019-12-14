@@ -32,7 +32,7 @@ export class EntradaComponent implements OnInit {
   messagecuota: string;
   inicio = true;
 
-  nueva_asistencia: AsistenciaSocioModel;
+  nueva_asistencia: any;
   
   asistencia_id: number;
   asistencia_fecha: string;
@@ -44,7 +44,9 @@ export class EntradaComponent implements OnInit {
   nueva_asistenciaEmpleado: AsistenciaEmpleadoModel;
   asistencia_tipo: boolean;
   accion = false;
-  
+
+  inicioEmpleado = true;
+  dejarPasarEmpleado = false;
 
   /*
   asistente = {
@@ -94,24 +96,20 @@ export class EntradaComponent implements OnInit {
   }
 
   nuevaAsistencia() {
-    /*
-    this.asistente = {
-      idSocio = this.socio.id,
-      fecha = new Date(),
-      hora = new Date(),
-    };
-    */
-    // this.socio.actividades.push(this.prueba);
-    // console.log(this.socio);
-    
     this.asistencia_id = this.socio.id;
-    this.asistencia_fecha = '';
-    this.asistencia_hora = '';
+    this.asistencia_fecha = '14/12/2019';
+    this.asistencia_hora = '15:00';
     this.asistencia_sucu = 1;
-    
-    this.nueva_asistencia = new AsistenciaSocioModel (this.asistencia_id, this.asistencia_fecha,
-                                                       this.asistencia_hora, this.asistencia_sucu);
+
+    this.nueva_asistencia = {
+      idSocio: this.asistencia_id,
+      fecha: this.asistencia_fecha,
+      hora: this.asistencia_hora,
+      sucursal: this.asistencia_sucu
+    };
+
     console.log(this.nueva_asistencia);
+
     this.django.crearAsisteciaSocio(this.nueva_asistencia).subscribe(
        data => {
          console.log('Data: ', data);
@@ -172,12 +170,12 @@ export class EntradaComponent implements OnInit {
   }
 
   controlEntradaPersonal() {
-    // console.log('hola soy el control de entrada');
     if (this.encontrado === true) {
-      this.dejarPasar = true;
-      this.inicio = false;
+      console.log('hola soy el if del control de entrada');
+      this.dejarPasarEmpleado = true;
+      this.inicioEmpleado = false;
     } else {
-      this.dejarPasar = false;
+      this.dejarPasarEmpleado = false;
       this.messagecuota = 'Usted no es un empleado';
     }
 
@@ -185,16 +183,16 @@ export class EntradaComponent implements OnInit {
   }
 
   nuevaAsistenciaEmpleado() {
-    
+
     this.asistencia_id = this.empleado.id;
     this.asistencia_fecha = '';
     this.asistencia_hora = '';
     // this.asistencia_tipo = 1;
-    
+
     this.nueva_asistenciaEmpleado = new AsistenciaEmpleadoModel (this.asistencia_id, this.asistencia_fecha,
                                                        this.asistencia_hora, this.asistencia_tipo);
     console.log(this.nueva_asistenciaEmpleado);
-    this.django.crearAsisteciaSocio(this.nueva_asistenciaEmpleado).subscribe(
+    this.django.crearAsisteciaEmpleado(this.nueva_asistenciaEmpleado).subscribe(
        data => {
          console.log('Data: ', data);
          return true;

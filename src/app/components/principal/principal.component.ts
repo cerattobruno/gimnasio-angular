@@ -14,6 +14,8 @@ export class PrincipalComponent implements OnInit {
 
   horarios: Array<any> = [];
 
+  public imprimir = false;
+
 
   constructor( private djangoService: DjangoService ) {}
 
@@ -49,4 +51,9 @@ export class PrincipalComponent implements OnInit {
     );
   }
 
+  imprimirFolleto() {
+    this.imprimir = true;
+  }
+
+  
 }

@@ -34,8 +34,8 @@
 
             <div *ngIf="customCheck1" class="form-group input-group ">
                 <div class="btn-group btn-group-sm btn-block " role="group" aria-label="...">
-                    <button (click)="accionEntrar()" type="button" class="btn btn-outline-success boton">Entrada</button>
-                    <button (click)="accionSalir()" type="button" class="btn btn-outline-danger boton">Salida</button>
+                    <button (click)="accionEntrar()" type="button" class="btn btn-success boton">Entrada</button>
+                    <button (click)="accionSalir()" type="button" class="btn btn-danger boton">Salida</button>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
             <div class="modal-content input-succes">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Disfrute de un excelente entrenamiento! <i class="fa fa-check-circle"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" (click)="reiniciar()" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
@@ -95,7 +95,7 @@
             <div class="modal-content input-missing">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Cuota vencida! <i class="fa fa-ban"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button (click)="reiniciar()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -118,12 +118,35 @@
             <div class="modal-content input-missing">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Dni inválido! <i class="fa fa-ban"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" (click)="reiniciar()" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                 </div>
                 <div class="modal-body">
                     Usted no es socio del Gimnasio, por favor pase por recepción y regístrese!
+                </div>
+                <div class="modal-footer">
+
+                    <button (click)="reiniciar()" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="dejarPasarEmpleado">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content input-succes">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Disfrute de un excelente día de trabajo! <i class="fa fa-check-circle"></i></h5>
+                    <button type="button" (click)="reiniciar()" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{empleado.nombre}}, {{empleado.apellido}}
                 </div>
                 <div class="modal-footer">
 

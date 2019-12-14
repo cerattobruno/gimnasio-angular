@@ -1,6 +1,22 @@
 <div class="col m-auto">
-    <div class="row ml-2 mt-2">
-        <h4>Grilla de Actividades</h4>
+    <div class="row  mt-2">
+        <div class="col-md-8">
+            <h4>Grilla de Actividades</h4>
+        </div>
+
+        <div class="col-md-3 mb-2">
+            <a class="nav-link btn btn-light float-right">
+                Imprimir
+                <i class="fa fa-print"></i>
+            </a>
+        </div>
+
+        <div class="col-md-1 mb-2">
+            <a class="nav-link btn btn-light float-right" href="http://127.0.0.1:8000/admin/SmartGym/horario/">
+                <i class="fa fa-eye"></i>
+            </a>
+        </div>
+
     </div>
 
     <!---
@@ -52,9 +68,9 @@
                     <td>{{act.precio | currency: 'CAD':'symbol-narrow'}}</td>
                     <td>
 
-                        <div *ngFor="let dia of horarios">
-                            <div *ngIf="dia.actividad == i+1">
-                                {{ dia.dia }}: {{ dia.hora_inicio | date: 'shortTime' }} - {{ dia.hora_fin | date: 'shortTime' }}
+                        <div *ngFor="let horario of horarios">
+                            <div *ngIf="horario.actividad == act.id">
+                                {{ horario.dia }}: {{ horario.hora_inicio | date: 'shortTime' }} - {{ horario.hora_fin | date: 'shortTime' }}
                             </div>
                         </div>
 
@@ -66,21 +82,24 @@
     <hr>
 </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<div *ngIf="imprimir">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content input-missing">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Dni inválido! <i class="fa fa-ban"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Usted no es socio del Gimnasio, por favor pase por recepción y regístrese!
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>

@@ -76,11 +76,10 @@ export class AbmComponent implements OnInit {
     this.django.crearSocio(this.nuevo_socio).subscribe(
        data => {
          // refresh the list
-         //this.nuevo_socio = data;
+         // this.nuevo_socio = data;
          this.getSocios();
          console.log(data);
          return true;
-         
        },
        error => {
          console.error('Error saving!');

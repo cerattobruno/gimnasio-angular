@@ -386,6 +386,25 @@ export class DjangoService {
       return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), header);
     }
 
+     // ASISTENCIA EMPLEADOS
+
+     getAsistenciaEmpleados(): Observable<any> {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      };
+      return this.http.get(this.baseurl + '/asistenciaempleado/', header);
+    }
+
+    crearAsisteciaEmpleado(post) {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      };
+      return this.http.post(`${this.baseurl}/asistenciempleado/`, JSON.stringify(post), header);
+    }
+
     // REGISTRO DE CUOTAS
 
     getCuotas(): Observable<any> {
