@@ -44,9 +44,20 @@ import { AsistenciasComponent } from './components/gestionestadisticas/asistenci
 import { BoxesComponent } from './components/gestionestadisticas/boxes/boxes.component';
 import { CajaComponent } from './components/gestionestadisticas/caja/caja.component';
 import { SociosActividadComponent } from './components/gestionestadisticas/socios-actividad/socios-actividad.component';
+import { PrintLayoutComponent } from './components/impresiones/print-layout/print-layout.component';
+import { ImpresionactsComponent } from './components/impresiones/impresionacts/impresionacts.component';
+import { CajagymComponent } from './components/cajagym/cajagym.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
+  {path: 'cajagym', component: CajagymComponent},
+  { path: 'print',
+    outlet: 'print',
+    component: PrintLayoutComponent,
+    children: [
+      { path: 'invoice/:invoiceIds', component: ImpresionactsComponent }
+    ]
+  },
   {path: 'socios', component: SociosComponent,
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'lista'},
@@ -74,7 +85,6 @@ const routes: Routes = [
   {path: 'empleados/horastrabajadas/:id', component: HorastrabajadasComponent},
   {path: 'administracion', component: AdministracionComponent,
     children: [
-      
       {path: 'altaprov', component: AltaprovComponent},
       {path: 'modificarprov', component: ModificarprovComponent},
       {path: 'pagoprov', component: PagoprovComponent},

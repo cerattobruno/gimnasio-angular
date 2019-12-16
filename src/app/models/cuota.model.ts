@@ -1,9 +1,10 @@
 export class CuotaModel {
     constructor(
-     public idCuota: string,
-     public idSocio: string,
+     public idSocio: number,
      public fechaVencimiento: string,
-     public periodo: string,
+     public descripcion: string,
+     public monto: number,
+     public metodo_pago: string,
+     public codigo_transac: string,
     ) {}
- 
- }
+}

@@ -415,6 +415,15 @@ export class DjangoService {
       return this.http.get(this.baseurl + '/cuotas/', header);
     }
 
+    crearCuota(post) {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+          .set('Content-Type', 'application/json')
+      }
+      return this.http.post(`${this.baseurl}/cuota/`, JSON.stringify(post), header);
+    }
+
 
     // PROVEEDORES
 
