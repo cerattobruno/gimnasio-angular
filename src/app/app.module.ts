@@ -71,6 +71,7 @@ import { SociosActividadComponent } from './components/gestionestadisticas/socio
 import { PrintLayoutComponent } from './components/impresiones/print-layout/print-layout.component';
 import { ImpresionactsComponent } from './components/impresiones/impresionacts/impresionacts.component';
 import { CajagymComponent } from './components/cajagym/cajagym.component';
+import { SacarturnoComponent } from './components/sacarturno/sacarturno.component';
 registerLocaleData(localeEs);
 
 
@@ -126,7 +127,8 @@ registerLocaleData(localeEs);
     SociosActividadComponent,
     PrintLayoutComponent,
     ImpresionactsComponent,
-    CajagymComponent
+    CajagymComponent,
+    SacarturnoComponent
   ],
   imports: [
     BrowserModule,

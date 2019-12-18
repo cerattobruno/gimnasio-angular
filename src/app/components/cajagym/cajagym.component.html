@@ -12,17 +12,20 @@
                     <input type="text" class="form-control" placeholder="Ingrese DNI a buscar" [(ngModel)]="dniSocio">
                 </div>
                 <div class="col-md-2">
-                    <button (click)="buscarSocio()" type="submit" class="btn btn-light">Buscar</button>
+                    <button (click)="buscarSocio()" type="submit" class="btn btn-light">
+                      Buscar
+                      <i class="fa fa-search"></i>
+                    </button>
                 </div>
             </div>
             <br>
-            <div class="row">
+            <div *ngIf="encontrado" class="row">
                 <div class="col-md-12">
                     <h5 class="float-left">Datos socio</h5>
                 </div>
             </div>
             <hr>
-            <form #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
+            <form *ngIf="encontrado" #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Nombre</label>
@@ -59,7 +62,7 @@
                             <div class="col-md-12">
                                 <ul class="list-group">
                                     <li *ngFor="let cuota of cuotasSocio" class="list-group-item">
-                                        {{cuota.fecha}} - {{cuota.monto | currency: 'ARS': 'symbol-narrow'}}
+                                        {{cuota.fecha_vencimiento}} - {{cuota.monto | currency: 'ARS': 'symbol-narrow'}}
                                         <small *ngIf="cuota.descripcion"> - {{cuota.descripcion}} </small> - {{cuota.metodo_pago}} - {{cuota.codigo_transaccion}}
                                     </li>
                                 </ul>
@@ -199,7 +202,7 @@
                     </div>
 
                     <div class="form-group text-center col-md-6">
-                        <button type="submit " class="btn btn-info w-100 ">
+                        <button type="submit " (click)="limpiar()" class="btn btn-info w-100 ">
                                 <i class="fa fa-trash-alt"></i>
                                 Cancelar operación
                             </button>

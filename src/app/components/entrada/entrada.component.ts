@@ -101,6 +101,12 @@ export class EntradaComponent implements OnInit {
     this.asistencia_hora = '15:00';
     this.asistencia_sucu = 1;
 
+    console.log(this.asistencia_id);
+    console.log(this.asistencia_fecha);
+    console.log(this.asistencia_hora);
+    console.log(this.asistencia_sucu);
+
+    
     this.nueva_asistencia = {
       idSocio: this.asistencia_id,
       fecha: this.asistencia_fecha,
@@ -108,11 +114,13 @@ export class EntradaComponent implements OnInit {
       sucursal: this.asistencia_sucu
     };
 
+    
     console.log(this.nueva_asistencia);
 
+    
     this.django.crearAsisteciaSocio(this.nueva_asistencia).subscribe(
        data => {
-         console.log('Data: ', data);
+         console.log('Data asistencia nueva: ', data);
          return true;
        },
        error => {
@@ -120,6 +128,7 @@ export class EntradaComponent implements OnInit {
          return throwError(error);
        }
     );
+  
   }
 
   controlar() {

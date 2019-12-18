@@ -383,7 +383,7 @@ export class DjangoService {
           .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
           .set('Content-Type', 'application/json')
       }
-      return this.http.post(`${this.baseurl}/asistenciasocio/`, JSON.stringify(post), header);
+      return this.http.post(`${this.baseurl}/asistenciasocios/`, JSON.stringify(post), header);
     }
 
      // ASISTENCIA EMPLEADOS
@@ -393,7 +393,7 @@ export class DjangoService {
         headers: new HttpHeaders()
           .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
       };
-      return this.http.get(this.baseurl + '/asistenciaempleado/', header);
+      return this.http.get(this.baseurl + '/asistenciaempleados/', header);
     }
 
     crearAsisteciaEmpleado(post) {
@@ -402,7 +402,7 @@ export class DjangoService {
           .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
           .set('Content-Type', 'application/json')
       };
-      return this.http.post(`${this.baseurl}/asistenciempleado/`, JSON.stringify(post), header);
+      return this.http.post(`${this.baseurl}/asistenciempleados/`, JSON.stringify(post), header);
     }
 
     // REGISTRO DE CUOTAS
@@ -421,7 +421,7 @@ export class DjangoService {
           .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
           .set('Content-Type', 'application/json')
       }
-      return this.http.post(`${this.baseurl}/cuota/`, JSON.stringify(post), header);
+      return this.http.post(`${this.baseurl}/cuotas/`, JSON.stringify(post), header);
     }
 
 

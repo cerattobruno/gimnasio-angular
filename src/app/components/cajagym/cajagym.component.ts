@@ -10,6 +10,8 @@ import { CuotaModel } from 'src/app/models/cuota.model';
 })
 export class CajagymComponent implements OnInit {
 
+  encontrado: boolean;
+
   socios: any[] = [];
   actividades: any[] = [];
   cuotas: any[] = [];
@@ -28,11 +30,13 @@ export class CajagymComponent implements OnInit {
   fechaCobro: string;
   descripcion = '';
 
-  
+  cuentaActualizada: number;
+
 
   public nueva_cuota: CuotaModel;
 
   constructor( private django: DjangoService) {
+    this.encontrado = false;
     this.getSocios();
     this.getActividades();
     this.getCuotas();
@@ -87,7 +91,7 @@ export class CajagymComponent implements OnInit {
       if (this.dniSocio == (this.socios[i].dni)) {
         this.socio = this.socios[i];
         this.buscarActividades();
-        // this.encontrado = true;
+        this.encontrado = true;
         console.log(this.socio);
       }
     }
@@ -160,6 +164,7 @@ export class CajagymComponent implements OnInit {
     );
 
     // console.log(this.nueva_cuota);
+    // this.actualizarSocio();
     this.nuevaCuota();
   }
 
@@ -175,6 +180,19 @@ export class CajagymComponent implements OnInit {
          return throwError(error);
        }
     );
+
+    this.actualizarSocio();
+    this.limpiar();
   }
 
+  actualizarSocio() {
+    this.cuentaActualizada = this.socio.cuenta - this.montoAcobrar;
+    console.log(this.cuentaActualizada);
+  }
+
+
+  limpiar() {
+    this.encontrado = false;
+    this.dniSocio = '';
+  }
 }
