@@ -74,6 +74,9 @@ import { CajagymComponent } from './components/cajagym/cajagym.component';
 import { SacarturnoComponent } from './components/sacarturno/sacarturno.component';
 registerLocaleData(localeEs);
 
+import {NgxPrintModule} from 'ngx-print';
+import { BuscadorrutinasComponent } from './components/buscadorrutinas/buscadorrutinas.component';
+
 
 @NgModule({
   declarations: [
@@ -128,7 +131,8 @@ registerLocaleData(localeEs);
     PrintLayoutComponent,
     ImpresionactsComponent,
     CajagymComponent,
-    SacarturnoComponent
+    SacarturnoComponent,
+    BuscadorrutinasComponent
   ],
   imports: [
     BrowserModule,
@@ -142,7 +146,8 @@ registerLocaleData(localeEs);
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
-    ChartsModule
+    ChartsModule,
+    NgxPrintModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]

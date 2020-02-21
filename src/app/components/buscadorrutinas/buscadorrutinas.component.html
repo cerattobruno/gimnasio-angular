@@ -4,7 +4,17 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <h5 class="m-auto">RUTINAS</h5>
+                <div class="text-center align-content-center col-md-11">
+                    <h5 class="">RUTINAS</h5>
+                </div>
+
+                <div class="text-left col-md-1">
+                    <button class="btn btn-light" data-toggle="popover" data-container="body" data-placement="bottom" title="Agregar nueva rutina">
+                        <a  class="prueba" href="http://127.0.0.1:8000/admin/SmartGym/rutina/add/">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </button>
+                </div>
             </div>
             <hr>
             <div class="row">
@@ -42,6 +52,13 @@
                     </div>
                 </div>
 
+                <div *ngIf="noRutinas">
+                    <div class="alert alert-danger" role="alert">
+                        {{socio.nombre}} no posee rutinas aún.
+                        <a href="http://127.0.0.1:8000/admin/SmartGym/rutina/add/" class="alert-link">Vamos a crearle una!</a>.
+                    </div>
+                </div>
+
                 <div *ngFor="let rutina of rutinasSocio; let i = index" class="form-row">
                     <div class="form-group col-md-6">
                         <label *ngIf="i == 0">Rutina/s</label>
@@ -52,8 +69,8 @@
                         <input type="text" class="form-control" placeholder="fecha" disabled>
                     </div>
                     <div class="form-group col-md-2">
-                        <label *ngIf="i == 0">Acciones</label>
-                        <button type="button" id="{{ rutina.id }}" class="btn btn-info" data-toggle="modal" data-target="#modalRutina"> Ver Mas</button>
+                        <label *ngIf="i == 0">Rutina completa</label>
+                        <button type="button" class="bordeboton btn btn-info" [routerLink]="['/socios/rutinas', rutina.id]" routerLinkActive="router-link-active"> Ver Mas</button>
                     </div>
 
                     <div class="modal fade" id="modalRutina" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">

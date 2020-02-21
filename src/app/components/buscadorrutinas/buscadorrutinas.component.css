@@ -1,0 +1,17 @@
+.bordeboton {
+    border-radius: 1rem;
+    width: 75%;
+    background-color: #47bac1;
+    color: whitesmoke;
+}
+
+.bordeboton:hover {
+    border-radius: 1rem;
+    width: 75%;
+    background-color: #354052;
+    color: #6f7e95;
+}
+
+.prueba {
+    color: #354052;
+}

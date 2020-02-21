@@ -48,9 +48,11 @@ import { PrintLayoutComponent } from './components/impresiones/print-layout/prin
 import { ImpresionactsComponent } from './components/impresiones/impresionacts/impresionacts.component';
 import { CajagymComponent } from './components/cajagym/cajagym.component';
 import { SacarturnoComponent } from './components/sacarturno/sacarturno.component';
+import { BuscadorrutinasComponent } from './components/buscadorrutinas/buscadorrutinas.component';
 
 const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
+  {path: 'buscadorrutinas', component: BuscadorrutinasComponent},
   {path: 'cajagym', component: CajagymComponent},
   {path: 'sacarturno', component: SacarturnoComponent},
   { path: 'print',
@@ -67,8 +69,7 @@ const routes: Routes = [
       {path: 'abm', component: AbmComponent},
       {path: 'modificar', component: ModificarComponent},
       {path: 'cobrar', component: CobrarComponent},
-      {path: 'reservar', component: ReservarComponent},
-      {path: 'rutinas', component: RutinasComponent}
+      {path: 'reservar', component: ReservarComponent}
     ]
   },
   {path: 'socios/:id', component: ModificarComponent},

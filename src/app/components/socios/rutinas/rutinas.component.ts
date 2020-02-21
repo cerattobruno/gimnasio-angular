@@ -17,14 +17,14 @@ export class RutinasComponent implements OnInit {
     ejercicios: Array<any>,
   };
 
-  socio: any = {} ;
+  rutina: any = {} ;
 
   constructor( private activatedRoute: ActivatedRoute,
                private django: DjangoService ) {
     this.activatedRoute.params.subscribe( params => {
       // console.log('Parametro:', params['id']);
       // this.socio = this.django.getSocio( params['id'] );
-      this.buscarSocio( params['id'] );
+      this.buscarRutina( params['id'] );
       // console.log('Socio:', this.socio);
     });
   }
@@ -32,11 +32,11 @@ export class RutinasComponent implements OnInit {
   ngOnInit() {
   }
 
-  buscarSocio = (id) => {
-    this.django.getSocio(id).subscribe(
+  buscarRutina = (id) => {
+    this.django.getRutina(id).subscribe(
       data => {
         console.log(data);
-        this.socio = data;
+        this.rutina = data;
         // this.loading = false;
       });
   }

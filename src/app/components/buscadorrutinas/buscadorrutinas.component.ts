@@ -20,6 +20,8 @@ export class BuscadorrutinasComponent implements OnInit {
   ejercicios: any[] = [];
   rutinaXejercicios: any[] = [];
 
+  noRutinas: boolean;
+
   constructor( private django: DjangoService) {
     this.encontrado = false;
     this.getSocios();
@@ -83,6 +85,7 @@ export class BuscadorrutinasComponent implements OnInit {
   
   buscarSocio() {
     console.log(this.dniSocio);
+    this.limpiarPantalla();
 
     let i = 0;
     for (i = 0; i < this.socios.length; i++ ) {
@@ -110,6 +113,9 @@ export class BuscadorrutinasComponent implements OnInit {
     for (i; i < this.rutinas.length; i++) {
       if ( this.socio.id === this.rutinas[i].socio ) {
         this.rutinasSocio.push(this.rutinas[i]);
+        this.noRutinas = false;
+      } else {
+        this.noRutinas = true;
       }
     }
     console.log(this.rutinasSocio);
@@ -118,8 +124,12 @@ export class BuscadorrutinasComponent implements OnInit {
   matchearRutinasDelSocioConEjercicios( idRutina: number) {
     let i = 0;
     for (i; i < this.rutinasSocio[idRutina].ejercicios.length; i++) {
-      
     }
   }
 
+
+  limpiarPantalla() {
+    this.socio = {} ;
+    this.rutinasSocio = [] ;
+  }
 }
