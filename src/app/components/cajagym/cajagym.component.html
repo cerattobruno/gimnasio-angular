@@ -12,13 +12,14 @@
                     <input type="text" class="form-control" placeholder="Ingrese DNI a buscar" [(ngModel)]="dniSocio">
                 </div>
                 <div class="col-md-2">
-                    <button (click)="buscarSocio()" type="submit" class="btn btn-light">
+                    <button (click)="buscarSocio()" type="submit" class="btn btn-light" data-toggle="modal" data-target="#modalCaja">
                       Buscar
                       <i class="fa fa-search"></i>
                     </button>
                 </div>
             </div>
             <br>
+
             <div *ngIf="encontrado" class="row">
                 <div class="col-md-12">
                     <h5 class="float-left">Datos socio</h5>
@@ -129,61 +130,7 @@
                         </div>
                     </div>
 
-                    <!--
-                    <div class="form-row">
-                        <div class="form-group  col-md-6">
-                            <label>Vencimiento</label>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Mes</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                    <option value="3">6</option>
-                                    <option value="1">7</option>
-                                    <option value="2">8</option>
-                                    <option value="3">9</option>
-                                    <option value="1">10</option>
-                                    <option value="2">11</option>
-                                    <option value="3">12</option>
-                                </select>
-                        </div>
-                        <div class="form-group  col-md-6">
-                            <label>.</label>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Año</option>
-                                    <option value="1">2019</option>
-                                    <option value="2">2020</option>
-                                    <option value="3">2021</option>
-                                    <option value="1">2022</option>
-                                    <option value="2">2023</option>
-                                    <option value="3">2024</option>
-                                    <option value="1">2025</option>
-                                </select>
-                        </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group  col-md-4">
-                            <label>Monto</label>
-                            <input type="number" class="form-control" placeholder="$$$$">
-                        </div>
-                        <div class="form-group  col-md-4">
-                            <label>Cant. cuotas</label>
-                            <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>1</option>
-                                    <option value="1">1</option>
-                                    <option value="2">3</option>
-                                    <option value="3">6</option>
-                                </select>
-                        </div>
-                        <div class="form-group  col-md-4">
-                            <label>Cuotas de</label>
-                            <input type="number" class="form-control" placeholder="$$$$">
-                        </div>
-                    </div>
-                    -->
                 </div>
                 <br>
 
@@ -209,6 +156,28 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!encontrado">
+
+    <div class="modal fade" id="modalCaja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mensaje del sistema <i class="fa fa-exclamation-circle"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    No se ha encontrado un socio con ese número de documento! Por favor ingrese un DNI válido...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="limpiar()">OK</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

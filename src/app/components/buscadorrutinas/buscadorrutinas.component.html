@@ -1,0 +1,85 @@
+<br>
+<div class="col">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <h5 class="m-auto">RUTINAS</h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Ingrese DNI a buscar" [(ngModel)]="dniSocio">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="buscarSocio()" type="submit" class="btn btn-light" data-toggle="modal" data-target="#modalCaja">
+                      Buscar
+                      <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <br>
+
+            <div *ngIf="encontrado" class="row">
+                <div class="col-md-12">
+                    <h5 class="float-left">Datos socio</h5>
+                </div>
+            </div>
+            <hr>
+            <form *ngIf="encontrado" #formContacto="ngForm" (ngSubmit)="formContacto.reset()" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="{{socio.nombre}}" name="nombre" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control" placeholder="{{socio.apellido}}" name="apellido" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Dni</label>
+                        <input type="text" class="form-control" placeholder="{{socio.dni}}" name="dni" disabled>
+                    </div>
+                </div>
+
+                <div *ngFor="let rutina of rutinasSocio; let i = index" class="form-row">
+                    <div class="form-group col-md-6">
+                        <label *ngIf="i == 0">Rutina/s</label>
+                        <input type="text" class="form-control" placeholder="{{rutina.nombre}} - Duración: {{rutina.duracion}}" name="rutina" disabled>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label *ngIf="i == 0">Fecha</label>
+                        <input type="text" class="form-control" placeholder="fecha" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label *ngIf="i == 0">Acciones</label>
+                        <button type="button" id="{{ rutina.id }}" class="btn btn-info" data-toggle="modal" data-target="#modalRutina"> Ver Mas</button>
+                    </div>
+
+                    <div class="modal fade" id="modalRutina" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Rutina Completa</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nombre de la rutina: <small>{{rutina.nombre}}</small></p>
+                                    <p>Fecha: <small>19/02/2020</small></p>
+                                    <p>Duración: <small>{{rutina.duracion}}</small></p>
+                                    <p>Cantidad de días por semana: <small>{{rutina.cantidad_dias}} dias</small></p>
+                                    <p>Descripción: <small>{{rutina.descripcion}}</small></p>
+
+                                    <hr>
+                                    <h6>Ejercicios</h6>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>

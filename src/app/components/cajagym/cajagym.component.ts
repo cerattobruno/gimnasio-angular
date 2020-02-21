@@ -163,7 +163,7 @@ export class CajagymComponent implements OnInit {
                                         this.montoAcobrar, this.modoPago, this.codigoTrans
     );
 
-    // console.log(this.nueva_cuota);
+    console.log(this.nueva_cuota);
     // this.actualizarSocio();
     this.nuevaCuota();
   }
@@ -171,7 +171,7 @@ export class CajagymComponent implements OnInit {
   nuevaCuota() {
     this.django.crearCuota(this.nueva_cuota).subscribe(
        data => {
-         // this.getEmpleados();
+         console.log(this.getCuotas());
          console.log(data);
          return true;
        },
@@ -181,8 +181,8 @@ export class CajagymComponent implements OnInit {
        }
     );
 
-    this.actualizarSocio();
-    this.limpiar();
+    // this.actualizarSocio();
+    // this.limpiar();
   }
 
   actualizarSocio() {

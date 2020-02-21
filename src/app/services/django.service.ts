@@ -334,6 +334,22 @@ export class DjangoService {
       {headers: this.httpOptions});
     }
 
+    getEjercicios(): Observable<any> {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/ejercicios/', header);
+    }
+
+    getRutinaXEjercicios(): Observable<any> {
+      var header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  'Token ' + localStorage.getItem("usertoken"))
+      }
+      return this.http.get(this.baseurl + '/rutinaxejercicios/', header);
+    }
+
 
   // HORARIOS
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
+import { DjangoService } from 'src/app/services/django.service';
 
 @Component({
   selector: 'app-socios-actividad',
@@ -15,7 +16,13 @@ export class SociosActividadComponent implements OnInit {
 
   sucursal1: Array<any> = [105, 59, 80, 90, 15];
 
-  constructor() { }
+  acts: any[] = [];
+
+  constructor( private django: DjangoService) {
+    this.getActividades();
+    console.log(this.acts);
+  }
+
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -42,6 +49,20 @@ export class SociosActividadComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getActividades = () => {
+    this.django.getActividades().subscribe(
+      data => {
+        this.acts = data.results;
+        // console.log(data.results);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {

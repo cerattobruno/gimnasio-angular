@@ -97,7 +97,7 @@ export class EntradaComponent implements OnInit {
 
   nuevaAsistencia() {
     this.asistencia_id = this.socio.id;
-    this.asistencia_fecha = '14/12/2019';
+    this.asistencia_fecha = "14/12/2019";
     this.asistencia_hora = '15:00';
     this.asistencia_sucu = 1;
 
